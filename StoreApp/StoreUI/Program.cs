@@ -1,4 +1,5 @@
 ﻿using System;
+using StoreModels;
 
 namespace StoreUI
 {
@@ -11,6 +12,10 @@ namespace StoreUI
         static void Main(string[] args)
         {
             //call method that starts main user interface
+            Customer Test = new Customer();
+            Console.WriteLine("Please Enter your first name: ");
+
+            
         }
     }
 }

@@ -5,7 +5,10 @@ namespace StoreModels
     /// </summary>
     public class Customer
     {
-        public string Name { get; set; }
+        public string FirstName { get; set; }
         //TODO: add more properties to identify the customer
+        public string LastName { get; set; }
+        public int PhoneNumber { get; set; }
+        public string Email { get; set; }
     }
 }
