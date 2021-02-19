@@ -12,10 +12,9 @@ namespace StoreUI
         static void Main(string[] args)
         {
             //call method that starts main user interface
-            Customer Test = new Customer();
-            Console.WriteLine("Please Enter your first name: ");
-
-            
+        
+            IMenu customer = new StoreMenu();
+            customer.Start();
         }
     }
 }
