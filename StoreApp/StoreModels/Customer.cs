@@ -14,11 +14,11 @@ namespace StoreModels
             get {return firstName;} 
             set
             {
-                while (value == null || value.Equals(""))
+                if (value == null || value.Equals(""))
                 {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                    value = Console.ReadLine();
+                    throw new ArgumentNullException();
                 }
+                value = firstName;
                 
             } 
         }
@@ -28,12 +28,12 @@ namespace StoreModels
             get{return lastName;} 
             set
             {
-                while (value == null || value.Equals(""))
+                if (value == null || value.Equals(""))
                 {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                    value = Console.ReadLine();
+                    throw new ArgumentNullException();
                 }
-            } 
+                value = lastName;
+            }
         }
         public string PhoneNumber { get; set; }
         public string Email 
@@ -41,14 +41,25 @@ namespace StoreModels
             get{return email;}
             set
             {
-                while (value == null || value.Equals(""))
+                if (value == null || value.Equals(""))
                 {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                    value = Console.ReadLine();
+                    throw new ArgumentNullException();
                 }
+                value = email;
             } 
         }
 
-        public Location Location {get; set;}
+        public Location Location 
+        {
+            get{return Location;} 
+            set
+            {
+                if (value == null || value.Equals(""))
+                {
+                    throw new ArgumentNullException();
+                }
+            }
+        }
+        //public override string ToString() => $"Customer Details: \n\t name: {this.FirstName} {this.LastName} \n\t phone number: {this.PhoneNumber} \n\t email: {this.Email}";
     }
 }

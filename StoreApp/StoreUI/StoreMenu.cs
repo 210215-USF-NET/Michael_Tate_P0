@@ -44,26 +44,127 @@ namespace StoreUI
 
         public void CreateCustomer()
         {
-            //// Create customer method
+            /// Create customer method\
+            Boolean isValid;
             Customer newCustomer = new Customer();
             Console.WriteLine("Please Enter your first name: ");
-            newCustomer.FirstName = Console.ReadLine();
+            do
+            {
+                try
+                {
+                    newCustomer.FirstName = Console.ReadLine();
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                    isValid = true;
+                }
+            } while (isValid);
+            
             Console.WriteLine("Please Enter your last name: ");
-            newCustomer.LastName = Console.ReadLine();
+            do
+            {
+                try
+                {
+                    newCustomer.LastName = Console.ReadLine();
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                    isValid = true;
+                } 
+            } while (isValid);
+            
             Console.WriteLine("Please Enter phone number (Optional): ");
             newCustomer.PhoneNumber = Console.ReadLine();
+            
             Console.WriteLine("Please Enter Email: ");
-            newCustomer.Email = Console.ReadLine();
+            do
+            {
+                try
+                {
+                    newCustomer.Email = Console.ReadLine();
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                    isValid = true;
+                }
+            } while (isValid);
 
             Location newCustLocarion = new Location();
+            
             Console.WriteLine("Please Enter your state of residence: ");
-            newCustLocarion.StateName = Console.ReadLine();
+            do
+            {
+                try
+                {
+                    newCustLocarion.StateName = Console.ReadLine();
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                    isValid = true;
+                }
+            } while (isValid);
+            
             Console.WriteLine("Please Enter city name: ");
-            newCustLocarion.CityName = Console.ReadLine();
+            do
+            {
+                try
+                {
+                    newCustLocarion.CityName = Console.ReadLine();
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                    isValid = true;
+                }
+            } while (isValid);
+            
             Console.WriteLine("Please Enter your address: ");
-            newCustLocarion.Address = Console.ReadLine();
+            do
+            {
+                try
+                {
+                    newCustLocarion.Address = Console.ReadLine();
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                    isValid = true;
+                }
+            } while (isValid);
+            
             Console.WriteLine("Please Enter your zip code: ");
-            newCustLocarion.Zip = int.Parse(Console.ReadLine());
+            do
+            {
+                try
+                {
+                    newCustLocarion.Zip = int.Parse(Console.ReadLine());
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                    isValid = true;
+                }
+            } while (isValid);
+            
+            Console.WriteLine($"Customer Details: \n\t name: {newCustomer.FirstName} {newCustomer.LastName} \n\t phone number: {newCustomer.PhoneNumber} \n\t email: {newCustomer.Email}");
 
         }
         private void GoodBuy()
