@@ -18,7 +18,7 @@ namespace StoreModels
                 {
                     throw new ArgumentNullException();
                 }
-                value = firstName;
+                firstName = value;
                 
             } 
         }
@@ -32,7 +32,7 @@ namespace StoreModels
                 {
                     throw new ArgumentNullException();
                 }
-                value = lastName;
+                lastName = value;
             }
         }
         public string PhoneNumber { get; set; }
@@ -45,7 +45,7 @@ namespace StoreModels
                 {
                     throw new ArgumentNullException();
                 }
-                value = email;
+                email = value;
             } 
         }
 

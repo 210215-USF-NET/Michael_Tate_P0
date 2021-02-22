@@ -45,7 +45,7 @@ namespace StoreUI
         public void CreateCustomer()
         {
             /// Create customer method\
-            Boolean isValid;
+            Boolean isValid = true;
             Customer newCustomer = new Customer();
             Console.WriteLine("Please Enter your first name: ");
             do
@@ -59,7 +59,6 @@ namespace StoreUI
                 catch (Exception)
                 {
                     Console.WriteLine("this is a required feald. Please try again:");
-                    isValid = true;
                 }
             } while (isValid);
             
