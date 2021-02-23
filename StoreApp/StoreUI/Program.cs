@@ -1,20 +1,57 @@
-﻿using System;
-using StoreModels;
+﻿using StoreBL;
+using StoreDL;
 
 namespace StoreUI
 {
     class Program
     {
-        /// <summary>
-        /// This is the main method, its the starting point of your application
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args)
         {
             //call method that starts main user interface
-        
-            IMenu customer = new StoreMenu();
+            IMenu customer = new StoreMenu(new CustomerBL(new CustomerRepoFile()));
             customer.Start();
         }
     }
 }
+/*
+Store App
+Overview:
+The store app is a software that helps customers purchase products from your business. Designed with functionality that would make virtual shopping much simpler!
+
+Functionality:
+add a new customer (done, need to save to file) 
+search customers by name
+display details of an order
+place orders to store locations for customers
+view order history of customer
+view order history of location
+view location inventory
+The customer should be able to purchase multiple products
+Order histories should have the option to be sorted by date (latest to oldest and vice versa) or cost (least expensive to most expensive)
+The manager should be able to replenish inventory
+
+Models:
+Customer
+Location
+Orders
+Product
+Note: add as much models as you would need for your design
+
+Additional requirements:
+Exception Handling
+Input validation
+Logging
+At least 10 unit tests
+Data should be persisted, (no data should be hard coded)
+You should use SQLServer DB
+DB structure should be 3NF
+Should have an ER Diagram
+Code should have xml documentation
+
+Tech Stack:
+C#
+SQLServer DB
+EF Core
+Xunit
+Serilog or Nlog
+*/

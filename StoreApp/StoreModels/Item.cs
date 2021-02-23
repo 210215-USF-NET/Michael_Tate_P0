@@ -1,3 +1,4 @@
+using System;
 namespace StoreModels
 {
 
@@ -6,8 +7,17 @@ namespace StoreModels
     /// </summary>
     public class Item
     {
+        private int quantity;
         public Product Product { get; set; }
 
-        public int Quantity { get; set; }
+        public int Quantity 
+        { 
+            get{return quantity;} 
+            set
+            {
+                if (value <= 0)
+                throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace StoreModels
         private string firstName;
         private string lastName;
         private string email;
+        private string ssn;
         public string FirstName 
         { 
             get {return firstName;} 
@@ -49,17 +50,21 @@ namespace StoreModels
             } 
         }
 
-        public Location Location 
-        {
-            get{return Location;} 
+        public string SSN 
+        { 
+            get{return ssn;} 
             set
             {
                 if (value == null || value.Equals(""))
                 {
                     throw new ArgumentNullException();
                 }
+                ssn = value;
             }
         }
-        //public override string ToString() => $"Customer Details: \n\t name: {this.FirstName} {this.LastName} \n\t phone number: {this.PhoneNumber} \n\t email: {this.Email}";
+
+        public Location Location {get; set;}
+        
+        public override string ToString() => $"Customer Details: \n\t name: {this.FirstName} {this.LastName} \n\t SSN: {this.SSN} \n\t phone number: {this.PhoneNumber} \n\t email: {this.Email}";
     }
 }

@@ -1,10 +1,16 @@
 using System;
 using StoreModels;
+using StoreBL;
 
 namespace StoreUI
 {
     public class StoreMenu : IMenu
     {
+        private ICustomerBL _customerBL;
+        public StoreMenu(ICustomerBL customerBL)
+        {
+            _customerBL = customerBL;
+        }
         public void Start()
         {
             Boolean stay = true;
@@ -13,7 +19,9 @@ namespace StoreUI
                 Console.WriteLine("Welcome to our store, please select an option below");
                 Console.WriteLine("[1] Creaste a new order.");
                 Console.WriteLine("[2] Manager Shit.");
-                Console.WriteLine("[3] Exit the store.");
+                Console.WriteLine("[3] Search for customer.");
+                Console.WriteLine("[4] Create an order.");
+                Console.WriteLine("[5] Exit the store.");
 
                 Console.WriteLine("Enter a number: ");
                 string userInput = Console.ReadLine();
@@ -25,12 +33,21 @@ namespace StoreUI
                 break;
                 
                 case "2":
-                //manager access
+                //Create an order
+                CreateOrder();
                 break;
 
                 case "3":
-                stay = false;
+                //search customer
+                break;
+
+                case "4":
+                //manager access
+                break;
+
+                case "5":
                 GoodBuy();
+                stay = false;
                 break;
                 
                 default:
@@ -47,6 +64,8 @@ namespace StoreUI
             /// Create customer method\
             Boolean isValid = true;
             Customer newCustomer = new Customer();
+            
+            //set customers first name
             Console.WriteLine("Please Enter your first name: ");
             do
             {
@@ -62,6 +81,7 @@ namespace StoreUI
                 }
             } while (isValid);
             
+            //set customers last name
             Console.WriteLine("Please Enter your last name: ");
             do
             {
@@ -78,6 +98,7 @@ namespace StoreUI
                 } 
             } while (isValid);
             
+            //set customers phone number (not required)
             Console.WriteLine("Please Enter phone number (Optional): ");
             newCustomer.PhoneNumber = Console.ReadLine();
             
@@ -96,79 +117,20 @@ namespace StoreUI
                     isValid = true;
                 }
             } while (isValid);
-
-            Location newCustLocarion = new Location();
             
-            Console.WriteLine("Please Enter your state of residence: ");
-            do
-            {
-                try
-                {
-                    newCustLocarion.StateName = Console.ReadLine();
-                    isValid = false;
 
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                    isValid = true;
-                }
-            } while (isValid);
-            
-            Console.WriteLine("Please Enter city name: ");
-            do
-            {
-                try
-                {
-                    newCustLocarion.CityName = Console.ReadLine();
-                    isValid = false;
-
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                    isValid = true;
-                }
-            } while (isValid);
-            
-            Console.WriteLine("Please Enter your address: ");
-            do
-            {
-                try
-                {
-                    newCustLocarion.Address = Console.ReadLine();
-                    isValid = false;
-
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                    isValid = true;
-                }
-            } while (isValid);
-            
-            Console.WriteLine("Please Enter your zip code: ");
-            do
-            {
-                try
-                {
-                    newCustLocarion.Zip = int.Parse(Console.ReadLine());
-                    isValid = false;
-
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                    isValid = true;
-                }
-            } while (isValid);
-            
-            Console.WriteLine($"Customer Details: \n\t name: {newCustomer.FirstName} {newCustomer.LastName} \n\t phone number: {newCustomer.PhoneNumber} \n\t email: {newCustomer.Email}");
-
+            _customerBL.AddCustomer(newCustomer);
+            Console.WriteLine("Customer successfully added");
         }
+        public void CreateOrder()
+        {
+            
+        }
+        //exit the program
         private void GoodBuy()
         {
             Console.WriteLine("Thank you for shopping with us. Goodbye");
         }
     }
+    
 }
