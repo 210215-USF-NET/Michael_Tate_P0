@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using StoreModels;
 namespace StoreDL
 {
-    public class CustomerRepoSC : ICustomerRepository
+    public class StoreRepoSC : IStoreRepository
     {
         public List<Customer> GetCustomers()
         {

@@ -8,7 +8,7 @@ namespace StoreUI
         static void Main(string[] args)
         {
             //call method that starts main user interface
-            IMenu customer = new StoreMenu(new CustomerBL(new CustomerRepoFile()));
+            IMenu customer = new StoreMenu(new CustomerBL(new StoreRepoFile()));
             customer.Start();
         }
     }
