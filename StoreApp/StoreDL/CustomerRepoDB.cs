@@ -1,6 +1,6 @@
 namespace StoreDL
 {
-    public class CustomerDB
+    public class CustomerRepoDB
     {
         
     }

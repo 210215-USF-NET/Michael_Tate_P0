@@ -8,7 +8,7 @@ namespace StoreUI
         static void Main(string[] args)
         {
             //call method that starts main user interface
-            IMenu customer = new StoreMenu(new CustomerBL(new StoreRepoFile()));
+            IMenu customer = new StoreMenu(new CustomerBL(new CustomerRepoFile()));
             customer.Start();
         }
     }
@@ -19,7 +19,7 @@ Overview:
 The store app is a software that helps customers purchase products from your business. Designed with functionality that would make virtual shopping much simpler!
 
 Functionality:
-add a new customer (done, need to save to file) 
+add a new customer (done) 
 search customers by name
 display details of an order
 place orders to store locations for customers
@@ -41,7 +41,7 @@ Additional requirements:
 Exception Handling
 Input validation
 Logging
-At least 10 unit tests
+At least 10 unit tests (1 done)
 Data should be persisted, (no data should be hard coded)
 You should use SQLServer DB
 DB structure should be 3NF

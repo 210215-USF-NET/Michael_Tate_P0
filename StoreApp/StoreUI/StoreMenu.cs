@@ -1,6 +1,8 @@
 using System;
-using StoreModels;
 using StoreBL;
+using StoreModels;
+using System.Collections.Generic;
+
 
 namespace StoreUI
 {
@@ -11,6 +13,7 @@ namespace StoreUI
         {
             _customerBL = customerBL;
         }
+        // reference: managerMenu = new ManagerMenu(_customerBL, _productBL, _locationBL, _inventoryBL, _orderBL);
         public void Start()
         {
             Boolean stay = true;
@@ -57,15 +60,7 @@ namespace StoreUI
             }while (stay);
         }
 
-        private void GetCustomer()
-        {
-            foreach (var item in _customerBL.GetCustomer())
-            {
-                Console.WriteLine(item.ToString());
-            }
-            Console.WriteLine("Press any key to continue");
-            Console.ReadLine();
-        }
+        
 
         public void CreateCustomer()
         {
@@ -130,8 +125,15 @@ namespace StoreUI
             Console.WriteLine("Customer successfully added");
         }
         
-        //exit the program
-
+        private void GetCustomer()
+        {
+            foreach (var item in _customerBL.GetCustomer())
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
+        }
         public void OrderStart()
         {
             string custChoice = "no";
@@ -160,19 +162,14 @@ namespace StoreUI
             switch (userInput)
             {
                 case "1":
-                Console.WriteLine("Please enter how many whole pies purchasing today");
+                Console.WriteLine("Please enter how many whole pies your purchasing today");
                 newItem.Quantity = int.Parse(Console.ReadLine());
-                int ammount = newItem.Quantity;
-                CalculateTotal(ammount, wholePie);
-                Console.WriteLine(CalculateTotal(ammount, slicePie));
-                Console.ReadLine();
+                Console.WriteLine(CalculateTotal(newItem.Quantity, wholePie));
                 break;
                 case "2":
-                Console.WriteLine("Please enter how many slices pies purchasing today");
-                newItem.Quantity = int.Parse(Console.ReadLine());
-                double total = CalculateTotal(newItem.Quantity, slicePie);
-                Console.WriteLine(total);
-                Console.ReadLine();
+                Console.WriteLine("Please enter how many slices of pie your purchasing today");
+                newItem.Quantity = int.Parse(Console.ReadLine()); 
+                Console.WriteLine(CalculateTotal(newItem.Quantity, slicePie));
                 break;
                 default:
                 break;
@@ -180,25 +177,36 @@ namespace StoreUI
             }while (true);
         }
 
-        public double CalculateTotal(int ammount,double slicePie)
+        public double CalculateTotal(int ammount,double price)
         {
             double total;
-            total = (ammount * slicePie) * .056;
+            total = (ammount * price) * .056 + (ammount * price);
             return total;
         }
 
-
-
-
-
-
-
-
-
-        private void GoodBuy()
+        /* public void SearchHero()
+        {
+            Console.WriteLine("Enter hero name: ");
+            Cusotmer foundHero = _heroBL.GetHeroByName(Console.ReadLine());
+            if (foundHero == null)
+            {
+                Console.WriteLine("No such hero found :<");
+            }
+            else
+            {
+                Console.WriteLine(foundHero.ToString());
+            }
+    }
+    */
+    private void GoodBuy()
         {
             Console.WriteLine("Thank you for shopping with us. Goodbye");
         }
+
+
+
+
+
     }
     
 }

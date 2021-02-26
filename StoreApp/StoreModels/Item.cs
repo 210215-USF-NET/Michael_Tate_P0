@@ -7,10 +7,11 @@ namespace StoreModels
     /// </summary>
     public class Item
     {
-        private int quantity;
+        //private int quantity;
         public Product Product { get; set; }
+        public int Quantity {get; set;}
 
-        public int Quantity 
+        /*public int Quantity 
         { 
             get{return quantity;} 
             set
@@ -19,5 +20,6 @@ namespace StoreModels
                 throw new ArgumentOutOfRangeException();
             }
         }
+        */
     }
 }

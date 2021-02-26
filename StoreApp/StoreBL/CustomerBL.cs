@@ -7,8 +7,8 @@ namespace StoreBL
 {
     public class CustomerBL : ICustomerBL
     {
-        private IStoreRepository _repo;
-        public CustomerBL(IStoreRepository repo)
+        private ICustomerRepository _repo;
+        public CustomerBL(ICustomerRepository repo)
         {
             _repo = repo;
         }
