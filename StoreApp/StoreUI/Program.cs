@@ -29,6 +29,8 @@ namespace StoreUI
 
             IMenu menu = new StoreMenu(new CustomerBL(new CustomerRepoDB(context, new CustomerMapper())));
             menu.Start();
+
+            
         }
     }
 }

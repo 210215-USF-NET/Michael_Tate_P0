@@ -14,9 +14,11 @@ namespace StoreUI
             _customerBL = customerBL;
         }
         // reference: managerMenu = new ManagerMenu(_customerBL, _productBL, _locationBL, _inventoryBL, _orderBL);
+
+        //start menu code
         public void Start()
         {
-            Boolean stay = true;
+            Boolean runMenu = true;
             do
             {
                 Console.WriteLine("Welcome to the pie store, please select an option below");
@@ -28,6 +30,7 @@ namespace StoreUI
 
                 Console.WriteLine("Enter a number: ");
                 string userInput = Console.ReadLine();
+                string managerPassword;
             
             switch (userInput)
             {
@@ -45,27 +48,41 @@ namespace StoreUI
                 break;
 
                 case "4":
-                //ManagerMenu.Start();
+                
+                Console.WriteLine("Please enter the Password (Psss its Passw0rd!)");
+                managerPassword = Console.ReadLine();
+                if (managerPassword.Equals("Passw0rd!"))
+                {
+                    ManagerMenu newManager = new ManagerMenu();
+                    newManager.Start();
+                    runMenu = false;
+                }
+                else
+                {
+                    Console.WriteLine("ERROR WRONG PASSWORD!!!");
+                }
                 break;
 
                 case "5":
                 GoodBuy();
-                stay = false;
+                runMenu = false;
                 break;
                 
                 default:
                     Console.WriteLine("\nThat was not an option try again\n");
                 break;
             }
-            }while (stay);
+            }while (runMenu);
         }
 
+        //create a customer
         public void CreateCustomer()
         {
             _customerBL.AddCustomer(InputCustomerDetails());
             Console.WriteLine("Customer successfully added");
         }
         
+        //get a customer, does not work yet
         private void GetCustomer()
         {
             foreach (var item in _customerBL.GetCustomer())
@@ -75,6 +92,8 @@ namespace StoreUI
             Console.WriteLine("Press any key to continue");
             Console.ReadLine();
         }
+        
+        //start an order
         public void OrderStart()
         {
             string custChoice = "no";
@@ -118,6 +137,7 @@ namespace StoreUI
             }while (true);
         }
 
+        //calculate the ttal cost of an order
         public double CalculateTotal(int ammount,double price)
         {
             double total;
@@ -127,7 +147,7 @@ namespace StoreUI
 
         
         
-        
+        //input the details of a customer
         public Customer InputCustomerDetails()
         {
             /// Create customer method\
@@ -206,6 +226,8 @@ namespace StoreUI
             }
     }
     */
+    
+    //end the program
     private void GoodBuy()
         {
             Console.WriteLine("Thank you for shopping with us. Goodbye");
