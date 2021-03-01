@@ -1,4 +1,4 @@
-drop table Cutomer;
+drop table Customer;
 drop table Orders;
 drop table OrderItems;
 drop table Product;
@@ -7,13 +7,13 @@ drop table storeLocation;
 
 
 
-create table Cutomer
+create table Customer
 (
 	id int identity primary key,
-	firstName varchar(12) not null,
-	lastName varchar(12) not null,
-	email varchar(30) not null,
-	phoneNumber varchar(10)
+	firstName char(12) not null,
+	lastName char(12) not null,
+	email char(30) not null,
+	phoneNumber char(16)
 
 );
 
@@ -44,13 +44,14 @@ create table OrderItems
 create table Orders
 (
 	id int identity primary key,
-	firstName varchar(12) not null,
-	lastName varchar(12) not null,
-	productName varchar(15) not null,
+	orderDate DATETIME DEFAULT 0 not null,
+	firstName char(12) not null,
+	lastName char(12) not null,
+	productName char(15) not null,
 	quantity int not null,
 	total smallmoney not null,
 	Location int references storeLocation(id),
-	Cutomer int references Cutomer(id)
+	Customer int references Customer(id)
 );
 
 create table Inventorty
@@ -61,5 +62,15 @@ create table Inventorty
 	Product int references Product(id),
 	Location int references storeLocation(id)
 );
+
+INSERT INTO Product (productName) values
+('CoconutCream'), ('Strawberry'), ('Blueberry'), ('Pumpkin'), ('Apple'),
+('Cherry'), ('Peach'), ('SweetPotato'), ('MixedBerry'), ('BananaCream'),
+('Razzleberry'), ('Mince'), ('ChocolateCream'), ('Grasshopper'), ('LemonMeringue'),
+('Custard'), ('Turtle'), ('VanillaCaramel'), ('Rhubarb'), ('Blackberry'), ('KeyLime'),
+('Pear'), ('Pecan');
+
 insert into storeLocation (city, state, address, zip) values
-('Chandler','AZ', '2929 E Ocotillo Rd', 85249);
+('Chandler','AZ', '2929 E Ocotillo Rd', 85249), (), (), (), ();
+
+select *;

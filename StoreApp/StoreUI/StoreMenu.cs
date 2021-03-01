@@ -45,7 +45,7 @@ namespace StoreUI
                 break;
 
                 case "4":
-                //manager access
+                //ManagerMenu.Start();
                 break;
 
                 case "5":
@@ -60,68 +60,9 @@ namespace StoreUI
             }while (stay);
         }
 
-        
-
         public void CreateCustomer()
         {
-            /// Create customer method\
-            Boolean isValid = true;
-            Customer newCustomer = new Customer();
-            
-            //set customers first name
-            Console.WriteLine("Please Enter your first name: ");
-            do
-            {
-                try
-                {
-                    newCustomer.FirstName = Console.ReadLine();
-                    isValid = false;
-
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                }
-            } while (isValid);
-            
-            //set customers last name
-            Console.WriteLine("Please Enter your last name: ");
-            do
-            {
-                try
-                {
-                    newCustomer.LastName = Console.ReadLine();
-                    isValid = false;
-
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                    isValid = true;
-                } 
-            } while (isValid);
-            
-            //set customers phone number (not required)
-            Console.WriteLine("Please Enter phone number (Optional): ");
-            newCustomer.PhoneNumber = Console.ReadLine();
-            
-            Console.WriteLine("Please Enter Email: ");
-            do
-            {
-                try
-                {
-                    newCustomer.Email = Console.ReadLine();
-                    isValid = false;
-
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("this is a required feald. Please try again:");
-                    isValid = true;
-                }
-            } while (isValid);
-            
-            _customerBL.AddCustomer(newCustomer);
+            _customerBL.AddCustomer(InputCustomerDetails());
             Console.WriteLine("Customer successfully added");
         }
         
@@ -184,6 +125,73 @@ namespace StoreUI
             return total;
         }
 
+        
+        
+        
+        public Customer InputCustomerDetails()
+        {
+            /// Create customer method\
+            Boolean isValid = true;
+            Customer newCustomer = new Customer();
+            
+            //set customers first name
+            Console.WriteLine("Please Enter your first name: ");
+            do
+            {
+                try
+                {
+                    newCustomer.FirstName = Console.ReadLine();
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                }
+            } while (isValid);
+            
+            //set customers last name
+            Console.WriteLine("Please Enter your last name: ");
+            do
+            {
+                try
+                {
+                    newCustomer.LastName = Console.ReadLine();
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                    isValid = true;
+                } 
+            } while (isValid);
+            
+            //set customers phone number (not required)
+            Console.WriteLine("Please Enter phone number (Optional): ");
+            newCustomer.PhoneNumber = Console.ReadLine();
+            
+            Console.WriteLine("Please Enter Email: ");
+            do
+            {
+                try
+                {
+                    newCustomer.Email = Console.ReadLine();
+                    isValid = false;
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("this is a required feald. Please try again:");
+                    isValid = true;
+                }
+            } while (isValid);
+
+            return newCustomer;
+        }
+        
+        
+        
         /* public void SearchHero()
         {
             Console.WriteLine("Enter hero name: ");
@@ -202,8 +210,6 @@ namespace StoreUI
         {
             Console.WriteLine("Thank you for shopping with us. Goodbye");
         }
-
-
 
 
 

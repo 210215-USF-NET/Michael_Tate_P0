@@ -5,7 +5,7 @@ namespace StoreModels
     /// <summary>
     /// This class should contain all the fields and properties that define a customers location.
     /// </summary>
-    public class Location
+    public class StoreLocation
     {
         public string Address {get; set;}
         public string StateName {get; set;}

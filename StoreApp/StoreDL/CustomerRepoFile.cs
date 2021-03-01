@@ -9,11 +9,12 @@ namespace StoreDL
     public class CustomerRepoFile : ICustomerRepository
     {
         private string jsonString;
-        private string filePath = "./StoreDL/StoreFiles.json";
+        
+        private string filePath = "C:/Users/Michael Tate/Desktop/Revature/Michael_Tate_P0/StoreApp/StoreDL/CustomerFiles.json";
         public Customer AddCustomer(Customer newCustomer)
         {
-            //List<Customer> CustomersFromFile = GetCustomers();
-            //CustomersFromFile.Add(newCustomer);
+            List<Customer> CustomersFromFile = GetCustomers();
+            CustomersFromFile.Add(newCustomer);
             jsonString = JsonSerializer.Serialize(newCustomer);
             File.WriteAllText(filePath, jsonString);
             return newCustomer;

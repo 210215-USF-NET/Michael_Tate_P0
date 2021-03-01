@@ -48,8 +48,6 @@ namespace StoreModels
                 email = value;
             } 
         }
-        public Location Location {get; set;}
-        
         public override string ToString() => $"Customer Details: \n\t name: {this.FirstName} {this.LastName} \n\t phone number: {this.PhoneNumber} \n\t email: {this.Email}";
     }
 }
