@@ -10,7 +10,7 @@ namespace StoreDL
     {
         private string jsonString;
         
-        private string filePath = "C:/Users/Michael Tate/Desktop/Revature/Michael_Tate_P0/StoreApp/StoreDL/CustomerFiles.json";
+        private string filePath = "./StoreDL/CustomerFiles.json";
         public Customer AddCustomer(Customer newCustomer)
         {
             List<Customer> CustomersFromFile = GetCustomers();

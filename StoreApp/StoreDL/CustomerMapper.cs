@@ -11,6 +11,7 @@ namespace StoreDL
         {
             return new Modle.Customer
             {
+                //Id = 
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
                 Email = customer.Email,
@@ -22,6 +23,7 @@ namespace StoreDL
         {
             return new Entity.Customer
             {
+                //Id =
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
                 Email = customer.Email,
@@ -32,9 +34,9 @@ namespace StoreDL
         {
             return new Modle.Order()
             {
-                /*Customer = ParseCustomer(order.Customer),
+                Customer = ParseCustomer(order.Customer),
                 Location = ParseCustomer(order.Location),
-                Total = (double)order.Total*/
+                Total = (decimal)order.Total
             };
         }
 
@@ -42,9 +44,9 @@ namespace StoreDL
         {
             return new Entity.Order()
             {
-               /* Customer = ParseCustomer(order.Customer),
-                Location = ParseCustomer(order.Location),
-                Total = (decimal)order.Total*/
+                Customer = order.Customer.id,
+                Location = Customer(order.Location),
+                Total = (decimal)order.Total
             };
         }
     }

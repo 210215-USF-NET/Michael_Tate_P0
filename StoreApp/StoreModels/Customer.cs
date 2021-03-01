@@ -9,6 +9,7 @@ namespace StoreModels
         private string firstName;
         private string lastName;
         private string email;
+        private string phoneNumber;
         public string FirstName 
         { 
             get {return firstName;} 
@@ -35,7 +36,11 @@ namespace StoreModels
                 lastName = value;
             }
         }
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber 
+        { 
+            get{return phoneNumber;} 
+            set{phoneNumber = value;} 
+        }
         public string Email 
         { 
             get{return email;}

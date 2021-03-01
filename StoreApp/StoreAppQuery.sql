@@ -71,6 +71,6 @@ INSERT INTO Product (productName) values
 ('Pear'), ('Pecan');
 
 insert into storeLocation (city, state, address, zip) values
-('Chandler','AZ', '2929 E Ocotillo Rd', 85249), (), (), (), ();
+('Chandler','AZ', '2929 E Ocotillo Rd', 85249), ('Gilbert', 'AZ', '3317 S Higley Rd',85297);
 
-select *;
+SELECT * FROM Customer
