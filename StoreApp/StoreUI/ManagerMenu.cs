@@ -6,11 +6,6 @@ namespace StoreUI
 {
     public class ManagerMenu : IMenu
     {
-
-        public void Test()
-        {
-            Start();
-        }
         public void Start()
         {
             do

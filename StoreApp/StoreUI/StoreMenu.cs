@@ -3,7 +3,6 @@ using StoreBL;
 using StoreModels;
 using System.Collections.Generic;
 
-
 namespace StoreUI
 {
     public class StoreMenu : IMenu
@@ -24,7 +23,7 @@ namespace StoreUI
                 Console.WriteLine("Welcome to the pie store, please select an option below");
                 Console.WriteLine("[1] Create a new customer.");
                 Console.WriteLine("[2] Create an order.");
-                Console.WriteLine("[3] Get all Customers.");
+                Console.WriteLine("[3] Search for Customer.");
                 Console.WriteLine("[4] Manager Shit.");
                 Console.WriteLine("[5] Exit the store.");
 
@@ -44,7 +43,9 @@ namespace StoreUI
                 break;
 
                 case "3":
-                GetCustomer();                //search customer
+                //search all customers or one customer
+                SearchCustomer newSearch = new SearchCustomer();
+                newSearch.Start();
                 break;
 
                 case "4":
@@ -82,16 +83,8 @@ namespace StoreUI
             Console.WriteLine("Customer successfully added");
         }
         
-        //get a customer, does not work yet
-        private void GetCustomer()
-        {
-            foreach (var item in _customerBL.GetCustomer())
-            {
-                Console.WriteLine(item.ToString());
-            }
-            Console.WriteLine("Press any key to continue");
-            Console.ReadLine();
-        }
+        
+        
         
         //start an order
         public void OrderStart()
