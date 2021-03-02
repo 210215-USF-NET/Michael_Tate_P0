@@ -40,7 +40,7 @@ namespace StoreUI
         private void GoodBuy()
         {
             //Console.WriteLine("See ya later boss!");
-            //IMenu menu = new StoreMenu(new CustomerBL(new CustomerRepoDB(context, new CustomerMapper())));
+            //IMenu menu = new StoreMenu(new CustomerBL(new CustomerRepoDB(context, new StoreMapper())));
             //menu.Start();
         }
     }
