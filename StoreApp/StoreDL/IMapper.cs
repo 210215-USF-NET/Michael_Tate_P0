@@ -1,4 +1,4 @@
-using Modle = StoreModels;
+using Model = StoreModels;
 using Entity = StoreDL.Entities;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -9,10 +9,10 @@ namespace StoreDL
     /// </summary>
     public interface IMapper
     {
-        Modle.Customer ParseCustomer(Entity.Customer customer);
-        Entity.Customer ParseCustomer(Modle.Customer customer);
+        Model.Customer ParseCustomer(Entity.Customer customer);
+        Entity.Customer ParseCustomer(Model.Customer customer);
 
-        Modle.Order ParseOrder(Entity.Order order);
-        Entity.Order ParseOrder(Modle.Order order);
+        Model.Order ParseOrder(Entity.Order order);
+        Entity.Order ParseOrder(Model.Order order);
     }
 }

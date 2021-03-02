@@ -1,4 +1,4 @@
-using Modle = StoreModels;
+using Model = StoreModels;
 using Entity = StoreDL.Entities;
 using StoreDL;
 using StoreModels;
@@ -7,9 +7,9 @@ namespace StoreDL
 {
     public class CustomerMapper : IMapper
     {
-        public Modle.Customer ParseCustomer(Entity.Customer customer)
+        public Model.Customer ParseCustomer(Entity.Customer customer)
         {
-            return new Modle.Customer
+            return new Model.Customer
             {
                 //Id = 
                 FirstName = customer.FirstName,
@@ -19,7 +19,7 @@ namespace StoreDL
             };
         }
 
-        public Entity.Customer ParseCustomer(Modle.Customer customer)
+        public Entity.Customer ParseCustomer(Model.Customer customer)
         {
             return new Entity.Customer
             {
@@ -30,23 +30,26 @@ namespace StoreDL
                 PhoneNumber = customer.PhoneNumber
             };
         }
-        public Modle.Order ParseOrder(Entity.Order order)
+        public Model.Order ParseOrder(Entity.Order order)
         {
-            return new Modle.Order()
+            return new Model.Order()
             {
-                Customer = ParseCustomer(order.Customer),
+                /*Customer = ParseCustomer(order.Customer),
                 Location = ParseCustomer(order.Location),
                 Total = (decimal)order.Total
+            */
             };
         }
 
-        public Entity.Order ParseOrder(Modle.Order order)
+        public Entity.Order ParseOrder(Model.Order order)
         {
             return new Entity.Order()
             {
+                /*
                 Customer = order.Customer.id,
                 Location = Customer(order.Location),
                 Total = (decimal)order.Total
+            */
             };
         }
     }

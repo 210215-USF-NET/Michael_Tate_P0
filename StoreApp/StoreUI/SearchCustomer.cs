@@ -7,13 +7,13 @@ namespace StoreUI
     public class SearchCustomer : IMenu
     {
         private ICustomerBL _customerBL;
-        public CustomerMenu(ICustomerBL customerBL)
+        /*public CustomerMenu(ICustomerBL customerBL)
         {
             _customerBL = customerBL;
         }
+        */
         public void Start()
         {
-            Console.WriteLine("test");
             /*private void GetCustomer()
             foreach (var item in _customerBL.GetCustomer())
             {

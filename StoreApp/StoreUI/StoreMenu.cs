@@ -44,8 +44,8 @@ namespace StoreUI
 
                 case "3":
                 //search all customers or one customer
-                SearchCustomer newSearch = new SearchCustomer();
-                newSearch.Start();
+                //SearchCustomer newSearch = new SearchCustomer();
+                //newSearch.Start();
                 break;
 
                 case "4":
@@ -205,20 +205,20 @@ namespace StoreUI
         
         
         
-        /* public void SearchHero()
+        public void SearchHero()
         {
             Console.WriteLine("Enter hero name: ");
-            Cusotmer foundHero = _heroBL.GetHeroByName(Console.ReadLine());
-            if (foundHero == null)
+            Customer foundCustomer = _customerBL.GetCustomerByName(Console.ReadLine());
+            if (foundCustomer == null)
             {
                 Console.WriteLine("No such hero found :<");
             }
             else
             {
-                Console.WriteLine(foundHero.ToString());
+                Console.WriteLine(foundCustomer.ToString());
             }
     }
-    */
+    
     
     //end the program
     private void GoodBuy()

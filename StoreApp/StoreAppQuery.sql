@@ -1,9 +1,7 @@
-drop table Customer;
-drop table Orders;
-drop table OrderItems;
-drop table Product;
-drop table Inventorty;
-drop table storeLocation;
+--drop table Customer;
+--drop table Orders;
+--drop table Product;
+--drop table Location;
 
 
 
@@ -17,15 +15,7 @@ create table Customer
 
 );
 
-create table Product
-(
-	id int identity primary key,
-	productName char(15) not null,
-	description char(50), --may delete later
-	price smallmoney not null
-);
-
-create table storeLocation
+create table Location
 (
 	id int identity primary key,
 	city char(17) not null,
@@ -34,43 +24,37 @@ create table storeLocation
 	zip int not null
 );
 
-create table OrderItems
+create table Product
 (
 	id int identity primary key,
-	quantity int not null,
-	Product int references Product(id)
+	productName char(15) not null,
+	wholeCount int not null,
+	sliceCount int not null,
+	price DECIMAL(6,2) not null,
+	Location int references Location(id)
 );
 
 create table Orders
 (
 	id int identity primary key,
 	orderDate DATETIME DEFAULT 0 not null,
-	firstName char(12) not null,
-	lastName char(12) not null,
-	productName char(15) not null,
 	quantity int not null,
-	total smallmoney not null,
-	Location int references storeLocation(id),
-	Customer int references Customer(id)
+	Location int references Location(id),
+	Customer int references Customer(id),
+	Product int REFERENCES Product(id)
 );
 
-create table Inventorty
-(
-	id int identity primary key,
-	quantity int not null,
-	productName char(15) not null,
-	Product int references Product(id),
-	Location int references storeLocation(id)
-);
+CREATE INDEX iOrderDate 
+ON Orders (orderDate);
 
-INSERT INTO Product (productName) values
-('CoconutCream'), ('Strawberry'), ('Blueberry'), ('Pumpkin'), ('Apple'),
-('Cherry'), ('Peach'), ('SweetPotato'), ('MixedBerry'), ('BananaCream'),
-('Razzleberry'), ('Mince'), ('ChocolateCream'), ('Grasshopper'), ('LemonMeringue'),
-('Custard'), ('Turtle'), ('VanillaCaramel'), ('Rhubarb'), ('Blackberry'), ('KeyLime'),
-('Pear'), ('Pecan');
 
-insert into storeLocation (city, state, address, zip) values
+
+--INSERT INTO Product (productName) values
+--('CoconutCream'), ('Strawberry'), ('Blueberry'), ('Pumpkin'), ('Apple');
+
+insert into Location (city, state, address, zip) values
 ('Chandler','AZ', '2929 E Ocotillo Rd', 85249), ('Gilbert', 'AZ', '3317 S Higley Rd',85297);
 
-SELECT * FROM Customer
+
+
+SELECT * FROM Location
