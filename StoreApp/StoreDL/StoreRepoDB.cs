@@ -61,6 +61,13 @@ namespace StoreDL
         {
             throw new System.NotImplementedException();
         }
-        
+
+        public List<StoreLocation> GetStoreLocation()
+        {
+            return _context.Locations
+            .AsNoTracking()
+            .Select(x => _mapper.ParseLocation(x))
+            .ToList();
+        }
     }
 }

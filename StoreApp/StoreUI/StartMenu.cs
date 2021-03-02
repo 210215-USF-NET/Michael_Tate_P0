@@ -7,32 +7,31 @@ namespace StoreUI
 {
     public class StartMenu : IMenu
     {
-        private IstoreBL _customerBL;
-        public StartMenu(IstoreBL customerBL)
+        private IstoreBL _repo;
+        public StartMenu(IstoreBL repo)
         {
-            _customerBL = customerBL;
+            _repo = repo;
         }
         public void Start()
         {
-            IMenu startNewMenu;
-
-            Console.WriteLine("Welcome to the Pie Shop");
+            Boolean runMenu = true;
+            string managerPassword;
+            
+            do
+            {
+            Console.WriteLine("Welcome to the Pie Shop!");
             Console.WriteLine("Please make a selection below:");
             Console.WriteLine("[1] Customer Oprions");
             Console.WriteLine("[2] Manager options");
             Console.WriteLine("[3] Exit Application");
-
-            string managerPassword;
             string userInput = Console.ReadLine();
             switch (userInput)
             {
                 case "1":
-
+                StartCustomer newSearch = new StartCustomer(_repo);
+                newSearch.Start();
                 break;
                 case "2":
-
-                break;
-                case "3":
                 Console.WriteLine("Please enter the Password (Psss its Passw0rd!)");
                 managerPassword = Console.ReadLine();
                 if (managerPassword.Equals("Passw0rd!"))
@@ -45,9 +44,15 @@ namespace StoreUI
                     Console.WriteLine("ERROR WRONG PASSWORD!!!");
                 }
                 break;
+                case "3":
+                Console.WriteLine($"We are sad to see you leave :(\nplease come again soon!!");
+                runMenu = false;
+                break;
                 default:
+                Console.WriteLine("\nThat was not an option try again\n");
                 break;
             }
+            } while (runMenu);
         }
 
 

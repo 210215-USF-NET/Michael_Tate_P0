@@ -50,12 +50,13 @@ ON Orders (orderDate);
 
 
 
---INSERT INTO Product (productName) values
---('CoconutCream'), ('Strawberry'), ('Blueberry'), ('Pumpkin'), ('Apple');
+INSERT INTO Product (productName, wholeCount, sliceCount, price, Location) values
+('CoconutCream', 10, 20, 16.00, 1), ('Strawberry', 10, 20, 16.00, 1), ('Blueberry', 10, 20, 16.00, 1), ('Pumpkin', 10, 20, 16.00, 1), ('Apple', 10, 20, 16.00, 1),
+('CoconutCream', 10, 20, 16.00, 2), ('Strawberry', 10, 20, 16.00, 2), ('Blueberry', 10, 20, 16.00, 2), ('Pumpkin', 10, 20, 16.00, 2), ('Apple', 10, 20, 16.00, 2);
 
-insert into Location (name, city, state, address, zip) values
+insert into Location (name, city, state, address, zip,) values
 ('GiGi Pie Shop','Chandler','AZ', '2929 E Ocotillo Rd', 85249), ('3.14','Gilbert', 'AZ', '3317 S Higley Rd',85297);
 
 
 
-SELECT * FROM Customer
+SELECT * FROM Product

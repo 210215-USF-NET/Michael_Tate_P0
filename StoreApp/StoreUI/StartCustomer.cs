@@ -4,21 +4,26 @@ using StoreBL;
 using System.Collections.Generic;
 namespace StoreUI
 {
-    public class SearchCustomer : IMenu
+    public class StartCustomer : IMenu
     {
-        private IstoreBL _customerBL;
-        public SearchCustomer(IstoreBL customerBL)
+        IMenu menu;
+        private IstoreBL _repo;
+        public StartCustomer(IstoreBL repo)
         {
-            _customerBL = customerBL;
+            _repo = repo;
         }
         
         public void Start()
         {
+            Boolean runMenu = true;
+            do
+            {
             Console.WriteLine("Welcome Customer!!!");
             Console.WriteLine("Please select an option below");
             Console.WriteLine("=============================");
             Console.WriteLine("[1] New Customer");
             Console.WriteLine("[2] Existing Customer");
+            Console.WriteLine("[3] Go Back");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
@@ -28,10 +33,14 @@ namespace StoreUI
                 case "2":
                 SearchForCustomer();
                 break;
+                case "3":
+                runMenu = false;
+                break;
                 default:
+                Console.WriteLine("\nThat was not an option try again\n");
                 break;
             }
-            
+            } while (runMenu);
         }
 
         //get all customer
@@ -48,7 +57,7 @@ namespace StoreUI
         //create a customer
         public void CreateCustomer()
         {
-            _customerBL.AddCustomer(InputCustomerDetails());
+            _repo.AddCustomer(InputCustomerDetails());
             Console.WriteLine("Customer successfully added");
         }
 
@@ -118,14 +127,17 @@ namespace StoreUI
         public void SearchForCustomer()
         {
             Console.WriteLine("Customers email address: ");
-            Customer locatedCustomer = _customerBL.GetCustomerByEmail(Console.ReadLine());
+            string email = Console.ReadLine();
+            Customer locatedCustomer = _repo.GetCustomerByEmail(email);
             if (locatedCustomer == null)
             {
                 Console.WriteLine("No such Customer found.");
             }
             else
             {
-                Console.WriteLine($"Customer found {locatedCustomer.FirstName}");
+                Console.WriteLine($"Customer found, hello {locatedCustomer.FirstName}");
+                menu = new StartOrder(_repo, locatedCustomer);
+                menu.Start();
             }
         }
     }

@@ -27,10 +27,10 @@ namespace StoreBL
         {
             return _repo.GetCustomerByEmail(email);
         }
-
-        // public List<StoreLocation> GetStoreLocation()
-        // {
-        //     return _repo.GetStoreLocation();
-        // }
+        
+        public List<StoreLocation> GetStoreLocation()
+        {
+            return _repo.GetStoreLocation();
+        }
     }
 }

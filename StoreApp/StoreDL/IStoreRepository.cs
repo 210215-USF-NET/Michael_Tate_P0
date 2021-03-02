@@ -10,6 +10,7 @@ namespace StoreDL
         Customer AddCustomer(Customer newCustomer);
         Customer GetCustomerByEmail(string name);
         List<Order> GetOrders();
+        List<StoreLocation> GetStoreLocation();
         Order AddOrder(Order newOrder);
         Order FindOrder(int orderID);
         Order FindOrder(double totalCost);

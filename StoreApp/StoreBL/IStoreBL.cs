@@ -7,6 +7,6 @@ namespace StoreBL
         List<Customer> GetCustomer();
         void AddCustomer(Customer newCustomer);
         Customer GetCustomerByEmail(string email);
-        //List<StoreLocation> GetStoreLocation();
+        List<StoreLocation> GetStoreLocation();
     }
 }
