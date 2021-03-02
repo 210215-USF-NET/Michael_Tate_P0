@@ -27,7 +27,7 @@ namespace StoreUI
             //using statement used to dispose of the context when its no longer used
             using var context = new StoreAppDBContext(options);
 
-            IMenu menu = new StoreMenu(new storeBL(new StoreRepoDB(context, new StoreMapper())));
+            IMenu menu = new StartMenu(new storeBL(new StoreRepoDB(context, new StoreMapper())));
             menu.Start();
 
             

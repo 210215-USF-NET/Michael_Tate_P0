@@ -9,16 +9,17 @@ namespace StoreDL.Entities
     {
         public Product()
         {
-            Inventorties = new HashSet<Inventorty>();
-            OrderItems = new HashSet<OrderItem>();
+            Orders = new HashSet<Order>();
         }
 
         public int Id { get; set; }
         public string ProductName { get; set; }
-        public string Description { get; set; }
+        public int WholeCount { get; set; }
+        public int SliceCount { get; set; }
         public decimal Price { get; set; }
+        public int? Location { get; set; }
 
-        public virtual ICollection<Inventorty> Inventorties { get; set; }
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual Location LocationNavigation { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

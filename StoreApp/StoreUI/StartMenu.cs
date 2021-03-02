@@ -7,6 +7,11 @@ namespace StoreUI
 {
     public class StartMenu : IMenu
     {
+        private IstoreBL _customerBL;
+        public StartMenu(IstoreBL customerBL)
+        {
+            _customerBL = customerBL;
+        }
         public void Start()
         {
             IMenu startNewMenu;

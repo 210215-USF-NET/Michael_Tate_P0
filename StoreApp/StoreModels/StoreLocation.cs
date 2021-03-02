@@ -7,10 +7,11 @@ namespace StoreModels
     /// </summary>
     public class StoreLocation
     {
+        public string Name {get; set;}
         public string Address {get; set;}
-        public string StateName {get; set;}
-        public string CityName {get; set;}
-        public string Zip {get; set;}
+        public string State {get; set;}
+        public string City {get; set;}
+        public int Zip {get; set;}
         //TODO: add some property for the location inventory
     }
 }

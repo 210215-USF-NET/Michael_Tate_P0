@@ -14,5 +14,8 @@ namespace StoreDL
 
         Model.Order ParseOrder(Entity.Order order);
         Entity.Order ParseOrder(Model.Order order);
+
+        Model.StoreLocation ParseLocation(Entity.Location location);
+        Entity.Location ParseLocation(Model.StoreLocation location);
     }
 }

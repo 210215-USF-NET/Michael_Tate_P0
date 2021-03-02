@@ -1,33 +1,34 @@
---drop table Customer;
---drop table Orders;
---drop table Product;
---drop table Location;
+drop table Product;
+drop table Location;
+drop table Customer;
+drop table Orders;
 
 
 
 create table Customer
 (
 	id int identity primary key,
-	firstName char(12) not null,
-	lastName char(12) not null,
-	email char(30) not null,
-	phoneNumber char(16)
+	firstName varchar(12) not null,
+	lastName varchar(12) not null,
+	email varchar(30) not null,
+	phoneNumber varchar(16)
 
 );
 
 create table Location
 (
 	id int identity primary key,
-	city char(17) not null,
-	state char(2) not null,
-	address char(30) not null,
+	name varchar(20) not null,
+	city varchar(17) not null,
+	state varchar(2) not null,
+	address varchar(30) not null,
 	zip int not null
 );
 
 create table Product
 (
 	id int identity primary key,
-	productName char(15) not null,
+	productName varchar(15) not null,
 	wholeCount int not null,
 	sliceCount int not null,
 	price DECIMAL(6,2) not null,
@@ -52,9 +53,9 @@ ON Orders (orderDate);
 --INSERT INTO Product (productName) values
 --('CoconutCream'), ('Strawberry'), ('Blueberry'), ('Pumpkin'), ('Apple');
 
-insert into Location (city, state, address, zip) values
-('Chandler','AZ', '2929 E Ocotillo Rd', 85249), ('Gilbert', 'AZ', '3317 S Higley Rd',85297);
+insert into Location (name, city, state, address, zip) values
+('GiGi Pie Shop','Chandler','AZ', '2929 E Ocotillo Rd', 85249), ('3.14','Gilbert', 'AZ', '3317 S Higley Rd',85297);
 
 
 
-SELECT * FROM Location
+SELECT * FROM Customer

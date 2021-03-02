@@ -1,0 +1,17 @@
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\bin\Debug\net5.0\StoreBL.deps.json
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\bin\Debug\net5.0\StoreBL.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\bin\Debug\net5.0\ref\StoreBL.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\bin\Debug\net5.0\StoreBL.pdb
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\bin\Debug\net5.0\StoreDL.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\bin\Debug\net5.0\StoreModels.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\bin\Debug\net5.0\StoreModels.pdb
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\bin\Debug\net5.0\StoreDL.pdb
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\obj\Debug\net5.0\StoreBL.csprojAssemblyReference.cache
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\obj\Debug\net5.0\StoreBL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\obj\Debug\net5.0\StoreBL.AssemblyInfoInputs.cache
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\obj\Debug\net5.0\StoreBL.AssemblyInfo.cs
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\obj\Debug\net5.0\StoreBL.csproj.CoreCompileInputs.cache
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\obj\Debug\net5.0\StoreBL.csproj.CopyComplete
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\obj\Debug\net5.0\StoreBL.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\obj\Debug\net5.0\ref\StoreBL.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Michael_Tate_P0\Michael_Tate_P0\StoreApp\StoreBL\obj\Debug\net5.0\StoreBL.pdb

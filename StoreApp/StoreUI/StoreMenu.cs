@@ -7,11 +7,7 @@ namespace StoreUI
 {
     public class StoreMenu : IMenu
     {
-        private IstoreBL _customerBL;
-        public StoreMenu(IstoreBL customerBL)
-        {
-            _customerBL = customerBL;
-        }
+        
         // reference: managerMenu = new ManagerMenu(_customerBL, _productBL, _locationBL, _inventoryBL, _orderBL);
 
         //start menu code
@@ -41,8 +37,8 @@ namespace StoreUI
 
                 case "3":
                 //search all customers or one customer
-                SearchCustomer newSearch = new SearchCustomer(_customerBL);
-                newSearch.Start();
+                // SearchCustomer newSearch = new SearchCustomer(_customerBL);
+                // newSearch.Start();
                 break;
 
                 case "4":
