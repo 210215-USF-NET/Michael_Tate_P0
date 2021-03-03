@@ -110,7 +110,7 @@ namespace StoreUI
             {
                 try
                 {
-                    newCustomer.Email = Console.ReadLine();
+                    newCustomer.Email = Console.ReadLine().ToLower();
                     isValid = false;
 
                 }

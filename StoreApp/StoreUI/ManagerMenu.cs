@@ -7,9 +7,13 @@ namespace StoreUI
     public class ManagerMenu : IMenu
     {
         private IstoreBL _repo;
+        List<StoreLocation> location;
+        List<Product> product;
         public ManagerMenu(IstoreBL repo)
         {
             _repo = repo;
+            product = _repo.GetProduct();
+            location = _repo.GetStoreLocation();
         }
         public void Start()
         {
@@ -46,7 +50,7 @@ namespace StoreUI
 
         private void CheckInventory()
         {
-            foreach (var item in _repo.GetProduct())
+            foreach (var item in product)
             {
                 Console.WriteLine(item.ToString());
             }

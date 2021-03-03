@@ -12,6 +12,7 @@ namespace StoreModels
         public string State {get; set;}
         public string City {get; set;}
         public int Zip {get; set;}
+        public int? Id { get; set; }
         //TODO: add some property for the location inventory
     }
 }

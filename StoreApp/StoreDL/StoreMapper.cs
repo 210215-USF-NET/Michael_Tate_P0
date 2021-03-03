@@ -53,7 +53,8 @@ namespace StoreDL
                 Address = location.Address,
                 City = location.City,
                 State = location.State,
-                Zip = location.Zip
+                Zip = location.Zip,
+                Id = (int)location.Id
             };
         }
 
@@ -98,7 +99,7 @@ namespace StoreDL
                 ProductName = (int)product.ProductName,
                 Price = product.Price,
                 WholeCount = product.WholeCount,
-                SliceCount = product.SliceCount
+                SliceCount = product.SliceCount,
             };
         }
     }

@@ -70,29 +70,25 @@ namespace StoreDL.Entities
                     .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false)
-                    .HasColumnName("name")
-                    .IsFixedLength(true);
+                    .HasColumnName("name");
 
                 entity.Property(e => e.Address)
                     .IsRequired()
                     .HasMaxLength(30)
                     .IsUnicode(false)
-                    .HasColumnName("address")
-                    .IsFixedLength(true);
+                    .HasColumnName("address");
 
                 entity.Property(e => e.City)
                     .IsRequired()
                     .HasMaxLength(17)
                     .IsUnicode(false)
-                    .HasColumnName("city")
-                    .IsFixedLength(true);
+                    .HasColumnName("city");
 
                 entity.Property(e => e.State)
                     .IsRequired()
                     .HasMaxLength(2)
                     .IsUnicode(false)
-                    .HasColumnName("state")
-                    .IsFixedLength(true);
+                    .HasColumnName("state");
 
                 entity.Property(e => e.Zip).HasColumnName("zip");
             });

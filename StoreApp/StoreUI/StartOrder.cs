@@ -13,10 +13,12 @@ namespace StoreUI
         private Customer _customer;
         List<Order> orders;
         List<Product> products;
+        public List<StoreLocation> StoresFromDB;
         
         public StartOrder(IstoreBL repo, Customer cust){
             _repo = repo;
             _customer = cust;
+            StoresFromDB = _repo.GetStoreLocation();
         }
 
         public void Start()
@@ -30,8 +32,7 @@ namespace StoreUI
                 switch (userInput)
                 {
                 case "1":
-                menu = new SelectStoreLocation(_repo);
-                menu.Start();
+                SelectStoreLocation();
                 break;
                 case "2":
 
@@ -43,18 +44,50 @@ namespace StoreUI
             } while (true);
         }
 
-        //calculate the ttal cost of an order
-        // public double CalculateTotal(int ammount,double price)
-        // {
-        //     double total;
-        //     total = (ammount * price) * .056 + (ammount * price);
-        //     return total;
-        // }
+
+
+        public void SelectStoreLocation()
+        {
+            //IMenu menu;
+            Boolean runMenu = true;
+            //Boolean badEntryFlag = true;
+            do
+            {
+                Console.WriteLine($"Enter the name of the shop you are looking to buy from today.\nyour options are:");
+                foreach(StoreLocation store in StoresFromDB)
+                {
+                    Console.WriteLine(store.Name);
+                }
+                string userInput = Console.ReadLine();
+                foreach(StoreLocation store in StoresFromDB)
+                {
+
+                    if (userInput.Equals(store.Name))
+                    {
+                        CreateOrder();
+                        runMenu = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nThat was not an option try again\n");
+                    }
+                }
+
+            } while (runMenu);
+
+        
+    }
+
+        private void CreateOrder()
+        {
+            Console.WriteLine("It worked");
+            Console.ReadLine();
+        }
     }
 }
 
-// string custChoice = "no";
-//             double wholePie = 15.00;
+//             string custChoice = "no";
+//             double wholePie = 16.00;
 //             double slicePie = 2.50;
 //             Item newItem = new Item();
 //             Product newProduct = new Product();
@@ -87,3 +120,11 @@ namespace StoreUI
 //                 break;
 //             }
 //             }while (true);
+
+//calculate the ttal cost of an order
+        // public double CalculateTotal(int ammount,double price)
+        // {
+        //     double total;
+        //     total = (ammount * price) * .056 + (ammount * price);
+        //     return total;
+        // }

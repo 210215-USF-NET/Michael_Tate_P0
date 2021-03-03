@@ -59,4 +59,4 @@ insert into Location (name, city, state, address, zip) values
 
 
 
-SELECT * FROM Product
+SELECT * FROM Location
