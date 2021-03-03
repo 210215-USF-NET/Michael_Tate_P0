@@ -13,7 +13,7 @@ namespace StoreDL.Entities
         }
 
         public int Id { get; set; }
-        public string ProductName { get; set; }
+        public int ProductName { get; set; }
         public int WholeCount { get; set; }
         public int SliceCount { get; set; }
         public decimal Price { get; set; }

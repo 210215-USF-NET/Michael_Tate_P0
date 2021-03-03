@@ -6,42 +6,57 @@ namespace StoreUI
 {
     public class ManagerMenu : IMenu
     {
+        private IstoreBL _repo;
+        public ManagerMenu(IstoreBL repo)
+        {
+            _repo = repo;
+        }
         public void Start()
         {
+            Boolean runMenu = true;
             do
             {
-                Console.WriteLine("Greetings manager please select an option below.");
-                Console.WriteLine("[1] Restock Inventory.");
-                Console.WriteLine("[2] Exit Manager Menu.");
+                Console.WriteLine("Hey Boss hows it going");
+                Console.WriteLine("Please select an option below");
+                Console.WriteLine("=============================");
+                Console.WriteLine("[1] Check Inventory");
+                Console.WriteLine("[2] Existing Customer");
+                Console.WriteLine("[3] Go Back");
 
                 //will add more as i go
                 string userInput = Console.ReadLine();
                 switch (userInput)
                 {
                     case "1":
-                        Restock();
+                        CheckInventory();
                     break;
                     case "2":
-                        GoodBuy();
+                        Restock();
+                    break;
+                    case "3":
+                        runMenu = false;
                     break;
                     default:
+                    Console.WriteLine("\nCome on boss what are you doing...\nLets try this again.");
                     break;
                 }
 
-            } while (true);
+            } while (runMenu);
+        }
+
+        private void CheckInventory()
+        {
+            foreach (var item in _repo.GetProduct())
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
         }
 
         public void Restock()
         {
-
-        }
-
-
-        private void GoodBuy()
-        {
-            //Console.WriteLine("See ya later boss!");
-            //IMenu menu = new StoreMenu(new CustomerBL(new CustomerRepoDB(context, new StoreMapper())));
-            //menu.Start();
+            
         }
     }
 }

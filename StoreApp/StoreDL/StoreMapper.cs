@@ -79,5 +79,27 @@ namespace StoreDL
             */
             };
         }
+
+        public Model.Product ParseProduct(Entity.Product product)
+        {
+            return new Model.Product()
+            {
+                ProductName = (Model.Pie)product.ProductName,
+                Price = product.Price,
+                WholeCount = product.WholeCount,
+                SliceCount = product.SliceCount
+            };
+        }
+
+        public Entity.Product ParseProduct(Model.Product product)
+        {
+            return new Entity.Product()
+            {
+                ProductName = (int)product.ProductName,
+                Price = product.Price,
+                WholeCount = product.WholeCount,
+                SliceCount = product.SliceCount
+            };
+        }
     }
 }

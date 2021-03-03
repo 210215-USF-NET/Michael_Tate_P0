@@ -2,6 +2,8 @@ using Model = StoreModels;
 using Entity = StoreDL.Entities;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using StoreDL.Entities;
+
 namespace StoreDL
 {
     /// <summary>
@@ -17,5 +19,8 @@ namespace StoreDL
 
         Model.StoreLocation ParseLocation(Entity.Location location);
         Entity.Location ParseLocation(Model.StoreLocation location);
+        
+        Model.Product ParseProduct(Entity.Product product);
+        Entity.Product ParseProduct(Model.Product product);
     }
 }

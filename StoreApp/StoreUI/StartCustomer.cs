@@ -127,7 +127,7 @@ namespace StoreUI
         public void SearchForCustomer()
         {
             Console.WriteLine("Customers email address: ");
-            string email = Console.ReadLine();
+            string email = Console.ReadLine().ToLower();
             Customer locatedCustomer = _repo.GetCustomerByEmail(email);
             if (locatedCustomer == null)
             {

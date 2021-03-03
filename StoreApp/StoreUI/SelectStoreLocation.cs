@@ -16,9 +16,9 @@ namespace StoreUI
         }
         public void Start()
         {
-            IMenu menu;
+            //IMenu menu;
             Boolean runMenu = true;
-            Boolean badEntryFlag = true;
+            //Boolean badEntryFlag = true;
             do
             {
                 Console.WriteLine($"Enter the name of the shop you are looking to buy from today.\nyour options are:");
@@ -33,14 +33,14 @@ namespace StoreUI
                 }
                 foreach(StoreLocation store in StoresFromDB)
                 {
-                    Console.WriteLine(store.Name);
-                    if (userInput.Equals(store.Name))
-                    {
-                        badEntryFlag = false;
-                        menu = new CategoryChoiceMenu(store, _repo);
-                        menu.Start();
-                        break;
-                    }
+                    // Console.WriteLine(store.Name);
+                    // if (userInput.Equals(store.Name))
+                    // {
+                    //     badEntryFlag = false;
+                    //     menu = new CategoryChoiceMenu(store, _repo);
+                    //     menu.Start();
+                    //     break;
+                    // }
                 }
 
             } while (runMenu);

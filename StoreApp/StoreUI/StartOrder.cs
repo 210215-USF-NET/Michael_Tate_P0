@@ -63,12 +63,7 @@ namespace StoreUI
 //             do
 //             {
 //             Console.WriteLine("What kind of pie would like to buy today?");
-//             Console.WriteLine(@"
-// #1:CoconutCream  #2:Strawberry  #3:Blueberry        #4:Pumpkin      #5:Apple
-// #6:Cherry        #7:Peach       #8:SweetPotato      #9:MixedBerry   #10:BananaCream
-// #11:Razzleberry  #12:Mince      #13:ChocolateCream  #14:Grasshopper #15:LemonMeringue
-// #16:Custard      #17:Turtle     #18:VanillaCaramel  #19:Rhubarb     #20:Blackberry 
-//         #21:KeyLime                 #22:Pear                #23:Pecan");
+//             Console.WriteLine("#1:CoconutCream  #2:Strawberry  #3:Blueberry  #4:Pumpkin  #5:Apple");
 //             Console.WriteLine("Please Enter the number of the flavor you would like");
 //             newProduct.PieFlavor = Enum.Parse<Pie>(Console.ReadLine());
 //             Console.WriteLine($"flavor added was {newProduct.PieFlavor} Correct?\nPlease answer with Yes or No");

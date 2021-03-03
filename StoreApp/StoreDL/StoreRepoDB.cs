@@ -69,5 +69,13 @@ namespace StoreDL
             .Select(x => _mapper.ParseLocation(x))
             .ToList();
         }
+
+        public List<Product> GetProduct()
+        {
+            return _context.Products
+            .AsNoTracking()
+            .Select(x => _mapper.ParseProduct(x))
+            .ToList();
+        }
     }
 }

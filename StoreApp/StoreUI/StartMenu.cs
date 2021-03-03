@@ -36,7 +36,7 @@ namespace StoreUI
                 managerPassword = Console.ReadLine();
                 if (managerPassword.Equals("Passw0rd!"))
                 {
-                    ManagerMenu newManager = new ManagerMenu();
+                    ManagerMenu newManager = new ManagerMenu(_repo);
                     newManager.Start();
                 }
                 else

@@ -17,6 +17,7 @@ namespace StoreUI
         public void Start()
         {
             IMenu menu;
+            Boolean runMenu = true;
             
         }
     }

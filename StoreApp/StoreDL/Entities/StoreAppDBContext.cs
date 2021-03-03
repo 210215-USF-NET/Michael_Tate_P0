@@ -134,12 +134,7 @@ namespace StoreDL.Entities
                     .HasColumnType("decimal(6, 2)")
                     .HasColumnName("price");
 
-                entity.Property(e => e.ProductName)
-                    .IsRequired()
-                    .HasMaxLength(15)
-                    .IsUnicode(false)
-                    .HasColumnName("productName")
-                    .IsFixedLength(true);
+                entity.Property(e => e.ProductName).HasColumnName("productName");
 
                 entity.Property(e => e.SliceCount).HasColumnName("sliceCount");
 

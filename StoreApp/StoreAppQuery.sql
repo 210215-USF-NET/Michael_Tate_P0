@@ -28,7 +28,7 @@ create table Location
 create table Product
 (
 	id int identity primary key,
-	productName varchar(15) not null,
+	productName int not null,
 	wholeCount int not null,
 	sliceCount int not null,
 	price DECIMAL(6,2) not null,
@@ -51,10 +51,10 @@ ON Orders (orderDate);
 
 
 INSERT INTO Product (productName, wholeCount, sliceCount, price, Location) values
-('CoconutCream', 10, 20, 16.00, 1), ('Strawberry', 10, 20, 16.00, 1), ('Blueberry', 10, 20, 16.00, 1), ('Pumpkin', 10, 20, 16.00, 1), ('Apple', 10, 20, 16.00, 1),
-('CoconutCream', 10, 20, 16.00, 2), ('Strawberry', 10, 20, 16.00, 2), ('Blueberry', 10, 20, 16.00, 2), ('Pumpkin', 10, 20, 16.00, 2), ('Apple', 10, 20, 16.00, 2);
+(1, 10, 20, 16.00, 1), (2, 10, 20, 16.00, 1), (3, 10, 20, 16.00, 1), (4, 10, 20, 16.00, 1), (5, 10, 20, 16.00, 1),
+(1, 10, 20, 16.00, 2), (2, 10, 20, 16.00, 2), (3, 10, 20, 16.00, 2), (4, 10, 20, 16.00, 2), (5, 10, 20, 16.00, 2);
 
-insert into Location (name, city, state, address, zip,) values
+insert into Location (name, city, state, address, zip) values
 ('GiGi Pie Shop','Chandler','AZ', '2929 E Ocotillo Rd', 85249), ('3.14','Gilbert', 'AZ', '3317 S Higley Rd',85297);
 
 
