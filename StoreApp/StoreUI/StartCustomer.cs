@@ -18,6 +18,7 @@ namespace StoreUI
             Boolean runMenu = true;
             do
             {
+            Console.Clear();
             Console.WriteLine("Welcome Customer!!!");
             Console.WriteLine("Please select an option below");
             Console.WriteLine("=============================");
@@ -37,7 +38,8 @@ namespace StoreUI
                 runMenu = false;
                 break;
                 default:
-                Console.WriteLine("\nThat was not an option try again\n");
+                Console.WriteLine("\nThat was not an option try again\n press enter to continue");
+                Console.ReadLine();
                 break;
             }
             } while (runMenu);
@@ -122,7 +124,8 @@ namespace StoreUI
             Customer locatedCustomer = _repo.GetCustomerByEmail(email);
             if (locatedCustomer == null)
             {
-                Console.WriteLine("No such Customer found.");
+                Console.WriteLine("No such Customer found. Please press enter to continue");
+                Console.ReadLine();
             }
             else
             {

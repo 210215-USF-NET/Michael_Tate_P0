@@ -26,6 +26,7 @@ namespace StoreUI
         {        
             do
             {
+                Console.Clear();
                 Console.WriteLine($"Welcome back {_customer.FirstName} would you like to...");
                 Console.WriteLine("[1] Create a new order");
                 Console.WriteLine("[2] View your order history");
@@ -56,6 +57,7 @@ namespace StoreUI
                 {
                     Console.WriteLine(store.Name);
                 }
+                Console.WriteLine("Please make a selection above:");
                 string userInput = Console.ReadLine();
                 foreach(StoreLocation store in StoresFromDB)
                 {
@@ -93,6 +95,7 @@ namespace StoreUI
 
             do
             {
+                Console.Clear();
                 Console.WriteLine("What kind of pie would like to buy today?");
                 Console.WriteLine("==================================================================");
                 Console.WriteLine("#1:CoconutCream  #2:Strawberry  #3:Blueberry  #4:Pumpkin  #5:Apple");

@@ -20,13 +20,14 @@ namespace StoreUI
             Boolean runMenu = true;
             do
             {
+                Console.Clear();
                 Console.WriteLine("Hey Boss hows it going");
                 Console.WriteLine("Please select an option below");
                 Console.WriteLine("=============================");
                 Console.WriteLine("[1] Check Inventory");
                 Console.WriteLine("[2] Check all Customers");
-                Console.WriteLine("[3] Update a Customer");
-                Console.WriteLine("[4] Delete a Customer");
+                //Console.WriteLine("[3] Update a Customer");
+                //Console.WriteLine("[4] Delete a Customer");
                 Console.WriteLine("[5] Go Back");
 
                 //will add more as i go

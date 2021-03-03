@@ -19,6 +19,7 @@ namespace StoreUI
             
             do
             {
+            Console.Clear();
             Console.WriteLine("Welcome to the Pie Shop!");
             Console.WriteLine("Please make a selection below:");
             Console.WriteLine("[1] Customer Oprions");
@@ -49,7 +50,9 @@ namespace StoreUI
                 runMenu = false;
                 break;
                 default:
-                Console.WriteLine("\nThat was not an option try again\n");
+                Console.WriteLine("\nThat was not an option try again\nPlease press enter to continue");
+                Console.ReadLine();
+
                 break;
             }
             } while (runMenu);
