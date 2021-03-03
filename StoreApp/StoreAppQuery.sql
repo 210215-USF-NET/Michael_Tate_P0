@@ -59,4 +59,4 @@ insert into Location (name, city, state, address, zip) values
 
 
 
-SELECT * FROM Location
+SELECT * FROM Orders

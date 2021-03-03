@@ -10,6 +10,7 @@ namespace StoreDL.Entities
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
         public int Quantity { get; set; }
+        public decimal Total { get; set; }
         public int? Location { get; set; }
         public int? Customer { get; set; }
         public int? Product { get; set; }

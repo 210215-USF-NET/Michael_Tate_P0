@@ -6,6 +6,7 @@ namespace StoreModels
     /// </summary>
     public class Customer
     {
+
         private string firstName;
         private string lastName;
         private string email;
@@ -53,6 +54,7 @@ namespace StoreModels
                 email = value;
             } 
         }
+        public int CustID { get; set; }
         public override string ToString() => $"Customer Details: \n\t name: {this.FirstName} {this.LastName} \n\t phone number: {this.PhoneNumber} \n\t email: {this.Email}";
     }
 }

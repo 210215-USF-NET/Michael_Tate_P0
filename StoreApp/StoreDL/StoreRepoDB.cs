@@ -25,7 +25,9 @@ namespace StoreDL
 
         public List<Model.Customer> GetCustomers()
         {
-            return _context.Customers.Include("Orders").Select(x =>_mapper.ParseCustomer(x)).ToList();
+            return _context.Customers
+            .Select(x =>_mapper.ParseCustomer(x))
+            .ToList();
         }
 
         public Model.Customer GetCustomerByEmail(string email)
@@ -42,9 +44,11 @@ namespace StoreDL
             throw new System.NotImplementedException();
         }
 
-        public Order AddOrder(Order newOrder)
+        public Order AddOrder(Model.Order newOrder)
         {
-            throw new System.NotImplementedException();
+            _context.Orders.Add(_mapper.ParseOrder(newOrder));
+            _context.SaveChanges();
+            return newOrder;
         }
 
         public Order FindOrder(int orderID)
@@ -76,6 +80,26 @@ namespace StoreDL
             .AsNoTracking()
             .Select(x => _mapper.ParseProduct(x))
             .ToList();
+        }
+
+        public Model.Product GetPrice()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateCustomer(Customer customer2BUpdated)
+        {
+            Entity.Customer oldCustomer = _context.Customers.Find(customer2BUpdated.CustID);
+            _context.Entry(oldCustomer).CurrentValues.SetValues(_mapper.ParseCustomer(customer2BUpdated));
+            _context.SaveChanges();
+            _context.ChangeTracker.Clear();
+        }
+
+        public Customer DeleteCustomer(Customer customer2BDeleted)
+        {
+            _context.Customers.Remove(_mapper.ParseCustomer(customer2BDeleted));
+            _context.SaveChanges();
+            return customer2BDeleted;
         }
     }
 }

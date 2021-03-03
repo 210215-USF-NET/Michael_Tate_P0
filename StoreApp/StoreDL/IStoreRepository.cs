@@ -16,5 +16,8 @@ namespace StoreDL
         Order FindOrder(double totalCost);
         List<Order> GetCustomerOrders(int custID);
         List<Product> GetProduct();
+        Product GetPrice();
+        void UpdateCustomer(Customer customer2BUpdated);
+        Customer DeleteCustomer(Customer customer2BDeleted);
     }
 }

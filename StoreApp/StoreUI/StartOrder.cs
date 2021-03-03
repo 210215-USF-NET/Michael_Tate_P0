@@ -8,11 +8,12 @@ namespace StoreUI
 {
     public class StartOrder : IMenu
     {
-        IMenu menu;
+        //IMenu menu;
         private IstoreBL _repo;
         private Customer _customer;
-        List<Order> orders;
-        List<Product> products;
+        private StoreLocation _location;
+        //List<Order> orders;
+        //List<Product> products;
         public List<StoreLocation> StoresFromDB;
         
         public StartOrder(IstoreBL repo, Customer cust){
@@ -43,9 +44,6 @@ namespace StoreUI
                 }
             } while (true);
         }
-
-
-
         public void SelectStoreLocation()
         {
             //IMenu menu;
@@ -64,6 +62,8 @@ namespace StoreUI
 
                     if (userInput.Equals(store.Name))
                     {
+                        
+                        _location = store;
                         CreateOrder();
                         runMenu = false;
                     }
@@ -72,59 +72,77 @@ namespace StoreUI
                         Console.WriteLine("\nThat was not an option try again\n");
                     }
                 }
-
             } while (runMenu);
-
         
-    }
-
-        private void CreateOrder()
-        {
-            Console.WriteLine("It worked");
-            Console.ReadLine();
         }
+
+        public void CreateOrder()
+        {
+            //Order ord = new InputOrderDetails();
+            _repo.AddOrder(InputOrderDetails());
+            Console.WriteLine("Order Created");
+        }
+
+        private Order InputOrderDetails()
+        {
+            Order newOrder = new Order();
+            Product newProduct = new Product();
+            decimal wholePie = (decimal)16.00;
+            decimal slicePie = (decimal)2.50;
+            string custChoice;
+
+            do
+            {
+                Console.WriteLine("What kind of pie would like to buy today?");
+                Console.WriteLine("==================================================================");
+                Console.WriteLine("#1:CoconutCream  #2:Strawberry  #3:Blueberry  #4:Pumpkin  #5:Apple");
+                Console.WriteLine("==================================================================");
+                Console.WriteLine("Please Enter the number of the flavor you would like");
+                newProduct.ProductName = Enum.Parse<Pie>(Console.ReadLine());
+                Console.WriteLine($"flavor added was {newProduct.ProductName} Correct?\nPlease answer with Yes or No");
+                custChoice = Console.ReadLine().ToLower();
+            } while (custChoice != "yes");
+            Console.WriteLine("Pie options");
+            Console.WriteLine("[1] Whole Pies");
+            Console.WriteLine("[2] Slice's of Pie");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                Console.WriteLine("Please enter how many whole pies your purchasing today");
+                newOrder.Quantity = int.Parse(Console.ReadLine());
+                newOrder.Total = (CalculateTotal(newOrder.Quantity, wholePie));
+                break;
+                case "2":
+                Console.WriteLine("Please enter how many slices of pie your purchasing today");
+                newOrder.Quantity = int.Parse(Console.ReadLine()); 
+                newOrder.Total = (CalculateTotal((decimal)newOrder.Quantity, slicePie));
+                break;
+                default:
+                break;
+            }
+            return newOrder;
+        }
+
+        //calculate the total cost of an order
+        public decimal CalculateTotal(decimal ammount,decimal price)
+        {
+            decimal beforeTax;
+            decimal impTax;
+            decimal tax= (decimal).056;
+            decimal afterTax;
+            beforeTax = decimal.Multiply( ammount, price );
+            impTax = decimal.Multiply( beforeTax, tax );
+            afterTax = decimal.Multiply( ammount, price ) + impTax;
+            return afterTax;
+        }    
     }
 }
 
-//             string custChoice = "no";
-//             double wholePie = 16.00;
-//             double slicePie = 2.50;
-//             Item newItem = new Item();
-//             Product newProduct = new Product();
-//             do
-//             {
-//             do
-//             {
-//             Console.WriteLine("What kind of pie would like to buy today?");
-//             Console.WriteLine("#1:CoconutCream  #2:Strawberry  #3:Blueberry  #4:Pumpkin  #5:Apple");
-//             Console.WriteLine("Please Enter the number of the flavor you would like");
-//             newProduct.PieFlavor = Enum.Parse<Pie>(Console.ReadLine());
-//             Console.WriteLine($"flavor added was {newProduct.PieFlavor} Correct?\nPlease answer with Yes or No");
-//             custChoice = Console.ReadLine().ToLower();
-//             } while (custChoice != "yes");
-//             Console.WriteLine("Please enter 1 if you are buying a whole pie or 2 if you are buying slices of pie");
-//             string userInput = Console.ReadLine();
-//             switch (userInput)
-//             {
-//                 case "1":
-//                 Console.WriteLine("Please enter how many whole pies your purchasing today");
-//                 newItem.Quantity = int.Parse(Console.ReadLine());
-//                 Console.WriteLine(CalculateTotal(newItem.Quantity, wholePie));
-//                 break;
-//                 case "2":
-//                 Console.WriteLine("Please enter how many slices of pie your purchasing today");
-//                 newItem.Quantity = int.Parse(Console.ReadLine()); 
-//                 Console.WriteLine(CalculateTotal(newItem.Quantity, slicePie));
-//                 break;
-//                 default:
-//                 break;
-//             }
-//             }while (true);
 
-//calculate the ttal cost of an order
-        // public double CalculateTotal(int ammount,double price)
-        // {
-        //     double total;
-        //     total = (ammount * price) * .056 + (ammount * price);
-        //     return total;
-        // }
+            // string custChoice = "no";
+            // double wholePie = 16.00;
+            // double slicePie = 2.50;
+
+        
+        

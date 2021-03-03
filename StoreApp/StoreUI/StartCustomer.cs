@@ -43,16 +43,7 @@ namespace StoreUI
             } while (runMenu);
         }
 
-        //get all customer
-        // private void GetCustomer()
-        // {
-        //     foreach (var item in _customerBL.GetCustomer())
-        //     {
-        //         Console.WriteLine(item.ToString());
-        //     }
-        //     Console.WriteLine("Press any key to continue");
-        //     Console.ReadLine();
-        // }
+        
 
         //create a customer
         public void CreateCustomer()
@@ -68,7 +59,7 @@ namespace StoreUI
             Boolean isValid = true;
             Customer newCustomer = new Customer();
             
-            //set customers first name
+            //set customers first name/
             Console.WriteLine("Please Enter your first name: ");
             do
             {

@@ -13,7 +13,7 @@ namespace StoreDL
         {
             return new Model.Customer
             {
-                //Id = 
+                //CustID = customer.Id,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
                 Email = customer.Email,
@@ -62,22 +62,19 @@ namespace StoreDL
         {
             return new Model.Order()
             {
-                /*Customer = ParseCustomer(order.Customer),
-                Location = ParseCustomer(order.Location),
-                Total = (decimal)order.Total
-            */
+                Quantity = order.Quantity,
+                Total = order.Total
             };
         }
 
         public Entity.Order ParseOrder(Model.Order order)
         {
-            return new Entity.Order()
+            return new Entity.Order
             {
-                /*
-                Customer = order.Customer.id,
-                Location = Customer(order.Location),
-                Total = (decimal)order.Total
-            */
+                Customer = order.Customer.CustID,
+                Location = order.Location.Id,
+                Quantity = order.Quantity,
+                Total = order.Total
             };
         }
 

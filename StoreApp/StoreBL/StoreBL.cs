@@ -14,8 +14,17 @@ namespace StoreBL
         }
         public void AddCustomer(Customer newCustomer)
         {
-            //Todo: Add BL
             _repo.AddCustomer(newCustomer);
+        }
+
+        public void AddOrder(Order newOrder)
+        {
+            _repo.AddOrder(newOrder);
+        }
+
+        public void DeleteCustomer(Customer customer2BDeleted)
+        {
+            _repo.DeleteCustomer(customer2BDeleted);
         }
 
         public List<Customer> GetCustomer()
@@ -28,6 +37,11 @@ namespace StoreBL
             return _repo.GetCustomerByEmail(email);
         }
 
+        public Product GetPrice()
+        {
+            return _repo.GetPrice();
+        }
+
         public List<Product> GetProduct()
         {
             return _repo.GetProduct();
@@ -36,6 +50,16 @@ namespace StoreBL
         public List<StoreLocation> GetStoreLocation()
         {
             return _repo.GetStoreLocation();
+        }
+        
+        public void UpdateCustomer(Customer customer2BUpdated, Customer updatedDetails)
+        {
+                customer2BUpdated.FirstName = updatedDetails.FirstName;
+                customer2BUpdated.LastName = updatedDetails.LastName;
+                customer2BUpdated.Email = updatedDetails.Email;
+                customer2BUpdated.PhoneNumber = updatedDetails.PhoneNumber;
+
+                _repo.UpdateCustomer(customer2BUpdated);
         }
 
         

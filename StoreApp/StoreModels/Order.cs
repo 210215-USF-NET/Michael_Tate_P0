@@ -7,6 +7,8 @@ namespace StoreModels
     {
         public Customer Customer { get; set; }
         public StoreLocation Location { get; set; }
+        public Product Product { get; set;}
+        public int Quantity {get; set;}
         public decimal Total { get; set; }
 
         //TODO: add a property for the order items

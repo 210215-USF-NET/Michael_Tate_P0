@@ -104,6 +104,10 @@ namespace StoreDL.Entities
 
                 entity.Property(e => e.Quantity).HasColumnName("quantity");
 
+                entity.Property(e => e.Total)
+                    .HasColumnType("decimal(6, 2)")
+                    .HasColumnName("total");
+                    
                 entity.HasOne(d => d.CustomerNavigation)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.Customer)
@@ -118,6 +122,8 @@ namespace StoreDL.Entities
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.Product)
                     .HasConstraintName("FK__Orders__Product__3E1D39E1");
+
+                
             });
 
             modelBuilder.Entity<Product>(entity =>
