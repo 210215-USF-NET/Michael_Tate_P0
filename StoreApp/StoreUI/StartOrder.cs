@@ -81,7 +81,7 @@ namespace StoreUI
         public void CreateOrder()
         {
             //Order ord = new InputOrderDetails();
-            _repo.AddOrder(InputOrderDetails());
+            _repo.AddOrder(InputOrderDetails(), StoresFromDB, _customer);
             Console.WriteLine("Order Created");
         }
 

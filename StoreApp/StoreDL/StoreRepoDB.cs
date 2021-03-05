@@ -39,31 +39,13 @@ namespace StoreDL
             .FirstOrDefault(x => x.Email == email);
         }
 
-        public List<Order> GetOrders()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Order AddOrder(Model.Order newOrder)
+        public Order AddOrder(Model.Order newOrder, Model.StoreLocation currentLocation,Model.Customer currentCustomer)
         {
             _context.Orders.Add(_mapper.ParseOrder(newOrder));
+            _context.Locations.Add(_mapper.ParseLocation(currentLocation));
+            _context.Customers.Add(_mapper.ParseCustomer(currentCustomer));
             _context.SaveChanges();
             return newOrder;
-        }
-
-        public Order FindOrder(int orderID)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Order FindOrder(double totalCost)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Order> GetCustomerOrders(int custID)
-        {
-            throw new System.NotImplementedException();
         }
 
         public List<StoreLocation> GetStoreLocation()
@@ -82,11 +64,6 @@ namespace StoreDL
             .ToList();
         }
 
-        public Model.Product GetPrice()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void UpdateCustomer(Customer customer2BUpdated)
         {
             Entity.Customer oldCustomer = _context.Customers.Find(customer2BUpdated.CustID);
@@ -100,6 +77,32 @@ namespace StoreDL
             _context.Customers.Remove(_mapper.ParseCustomer(customer2BDeleted));
             _context.SaveChanges();
             return customer2BDeleted;
+        }
+
+        public Model.Product GetPrice()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Order FindOrder(int orderID)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Order FindOrder(double totalCost)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Order> GetCustomerOrders(int custID)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        
+        public List<Order> GetOrders()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

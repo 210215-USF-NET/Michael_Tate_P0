@@ -11,7 +11,7 @@ namespace StoreDL
         Customer GetCustomerByEmail(string name);
         List<Order> GetOrders();
         List<StoreLocation> GetStoreLocation();
-        Order AddOrder(Order newOrder);
+        Order AddOrder(Order newOrder,StoreLocation currentLocation,Customer currentCustomer);
         Order FindOrder(int orderID);
         Order FindOrder(double totalCost);
         List<Order> GetCustomerOrders(int custID);

@@ -63,7 +63,7 @@ namespace StoreDL
             return new Model.Order()
             {
                 Quantity = order.Quantity,
-                Total = order.Total
+                Total = order.Total,
             };
         }
 
@@ -71,8 +71,6 @@ namespace StoreDL
         {
             return new Entity.Order
             {
-                Customer = order.Customer.CustID,
-                Location = order.Location.Id,
                 Quantity = order.Quantity,
                 Total = order.Total
             };

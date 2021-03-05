@@ -6,7 +6,7 @@ namespace StoreBL
     {
         List<Customer> GetCustomer();
         void AddCustomer(Customer newCustomer);
-        void AddOrder(Order newOrder);
+        void AddOrder(Order newOrder, StoreLocation getStoreLocation, Customer getCustomer);
         Customer GetCustomerByEmail(string email);
         List<StoreLocation> GetStoreLocation();
         List<Product> GetProduct();

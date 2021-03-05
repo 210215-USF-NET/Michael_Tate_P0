@@ -40,6 +40,7 @@ create table Orders
 	id int identity primary key,
 	orderDate DATETIME DEFAULT 0 not null,
 	quantity int not null,
+	total int not null,
 	Location int references Location(id),
 	Customer int references Customer(id),
 	Product int REFERENCES Product(id)

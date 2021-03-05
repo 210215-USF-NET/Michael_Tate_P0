@@ -17,9 +17,9 @@ namespace StoreBL
             _repo.AddCustomer(newCustomer);
         }
 
-        public void AddOrder(Order newOrder)
+        public void AddOrder(Order newOrder, StoreLocation getStoreLocation, Customer getCustomer)
         {
-            _repo.AddOrder(newOrder);
+            _repo.AddOrder(newOrder, getStoreLocation, getCustomer);
         }
 
         public void DeleteCustomer(Customer customer2BDeleted)
