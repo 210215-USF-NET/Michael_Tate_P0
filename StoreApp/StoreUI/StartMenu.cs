@@ -2,7 +2,7 @@ using System;
 using StoreModels;
 using StoreBL;
 using System.Collections.Generic;
-
+using Serilog;
 namespace StoreUI
 {
     public class StartMenu : IMenu
@@ -16,7 +16,7 @@ namespace StoreUI
         {
             Boolean runMenu = true;
             string managerPassword;
-            
+            Log.Logger = new LoggerConfiguration().WriteTo.File("../SystemLog.json").CreateLogger();
             do
             {
             Console.Clear();
@@ -42,7 +42,9 @@ namespace StoreUI
                 }
                 else
                 {
-                    Console.WriteLine("ERROR WRONG PASSWORD!!!");
+                    Log.Error("Invalid password was entered");
+                    Console.WriteLine("ERROR WRONG PASSWORD!!! Press Enter to Continue");
+                    Console.ReadLine();
                 }
                 break;
                 case "3":
@@ -50,6 +52,7 @@ namespace StoreUI
                 runMenu = false;
                 break;
                 default:
+                Log.Error("Invalid option was chosen(Client did not choose 'Customer Oprions', 'Manager options', or 'Exit Application' )");
                 Console.WriteLine("\nThat was not an option try again\nPlease press enter to continue");
                 Console.ReadLine();
 

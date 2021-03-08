@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LJrW6jHeFi8ujy7fV8gm5Zg+6OTsTEPX/rlrHsTxipygdVEvVAIwJBL9JbuomMbavoFr8ln3yY2TzyxadqPvtQ==",
+  "dgSpecHash": "/IZZKhpC3za9Og0YN7qXTXdeFewZfsLEu96Bw6f8BDLBacXBaBFD1+LZtbss2DQQv2sWClf7q0R9kJdr4PzYJQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\Michael_Tate_P0\\StoreApp\\StoreBL\\StoreBL.csproj",
+  "projectFilePath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\StoreApp\\StoreBL\\StoreBL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mtwil\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\mtwil\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

@@ -5,11 +5,13 @@ namespace StoreModels
     /// </summary>
     public class Order
     {
-        public Customer Customer { get; set; }
-        public StoreLocation Location { get; set; }
-        public Product Product { get; set;}
+        public int CustID { get; set; }
+        public int LocID { get; set; }
+        public int ProID { get; set;}
         public int Quantity {get; set;}
         public decimal Total { get; set; }
+
+        public override string ToString() => $"Oreder Details: \n\t Store LocationID: {this.LocID} \n\t ProductID: {this.ProID} \n\t Quantity: {this.Quantity} \n\t Total: ${this.Total}";
 
         //TODO: add a property for the order items
     }

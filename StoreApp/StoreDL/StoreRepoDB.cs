@@ -39,11 +39,9 @@ namespace StoreDL
             .FirstOrDefault(x => x.Email == email);
         }
 
-        public Order AddOrder(Model.Order newOrder, Model.StoreLocation currentLocation,Model.Customer currentCustomer)
+        public Order AddOrder(Model.Order newOrder)
         {
             _context.Orders.Add(_mapper.ParseOrder(newOrder));
-            _context.Locations.Add(_mapper.ParseLocation(currentLocation));
-            _context.Customers.Add(_mapper.ParseCustomer(currentCustomer));
             _context.SaveChanges();
             return newOrder;
         }
@@ -52,7 +50,7 @@ namespace StoreDL
         {
             return _context.Locations
             .AsNoTracking()
-            .Select(x => _mapper.ParseLocation(x))
+            .Select(Id => _mapper.ParseLocation(Id))
             .ToList();
         }
 
@@ -79,6 +77,30 @@ namespace StoreDL
             return customer2BDeleted;
         }
 
+        public List<Order> GetOrders()
+        {
+            return _context.Orders
+            .AsNoTracking()
+            .Select(x =>_mapper.ParseOrder(x))
+            .ToList();
+        }
+
+        public Model.Product GetProductByName(int ProductName)
+        {
+            return _context.Products
+            .AsNoTracking()
+            .Select(x => _mapper.ParseProduct(x))
+            .ToList().FirstOrDefault(x => x.ProductName.Equals(ProductName));
+        }
+        public void UpdateInventory(Product inv)
+        {
+            Entity.Product oldInv = _context.Products.Find(inv.ProductName);
+            _context.Entry(oldInv).CurrentValues.SetValues(_mapper.ParseProduct(inv));
+
+            _context.SaveChanges();
+            _context.ChangeTracker.Clear();
+        }
+
         public Model.Product GetPrice()
         {
             throw new System.NotImplementedException();
@@ -100,9 +122,5 @@ namespace StoreDL
         }
 
         
-        public List<Order> GetOrders()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

@@ -14,10 +14,9 @@ namespace StoreDL.Entities
 
         public int Id { get; set; }
         public int ProductName { get; set; }
-        public int WholeCount { get; set; }
-        public int SliceCount { get; set; }
+        public int PieCount { get; set; }
         public decimal Price { get; set; }
-        public int? Location { get; set; }
+        public int Location { get; set; }
 
         public virtual Location LocationNavigation { get; set; }
         public virtual ICollection<Order> Orders { get; set; }

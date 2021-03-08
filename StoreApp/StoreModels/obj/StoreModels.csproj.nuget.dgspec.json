@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\Michael_Tate_P0\\StoreApp\\StoreModels\\StoreModels.csproj": {}
+    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\StoreApp\\StoreModels\\StoreModels.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\Michael_Tate_P0\\StoreApp\\StoreModels\\StoreModels.csproj": {
+    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\StoreApp\\StoreModels\\StoreModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\Michael_Tate_P0\\StoreApp\\StoreModels\\StoreModels.csproj",
+        "projectUniqueName": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\StoreApp\\StoreModels\\StoreModels.csproj",
         "projectName": "StoreModels",
-        "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\Michael_Tate_P0\\StoreApp\\StoreModels\\StoreModels.csproj",
+        "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\StoreApp\\StoreModels\\StoreModels.csproj",
         "packagesPath": "C:\\Users\\mtwil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\Michael_Tate_P0\\StoreApp\\StoreModels\\obj\\",
+        "outputPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Michael_Tate_P0\\StoreApp\\StoreModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

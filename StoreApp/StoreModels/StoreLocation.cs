@@ -13,5 +13,6 @@ namespace StoreModels
         public string City {get; set;}
         public int Zip {get; set;}
         public int Id { get; set; }
+        public override string ToString() => $"Inventory Details:\n\t Store Location: {this.Id}\n\t State: {this.State}";
     }
 }

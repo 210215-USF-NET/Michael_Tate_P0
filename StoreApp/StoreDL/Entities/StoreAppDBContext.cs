@@ -108,19 +108,25 @@ namespace StoreDL.Entities
                     .HasColumnType("decimal(6, 2)")
                     .HasColumnName("total");
                     
+                entity.Property(e => e.CustomerID).HasColumnName("customerid");
+
                 entity.HasOne(d => d.CustomerNavigation)
                     .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.Customer)
+                    .HasForeignKey(d => d.CustomerID)
                     .HasConstraintName("FK__Orders__Customer__3D2915A8");
+
+                entity.Property(e => e.LocationID).HasColumnName("locationid");
 
                 entity.HasOne(d => d.LocationNavigation)
                     .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.Location)
+                    .HasForeignKey(d => d.LocationID)
                     .HasConstraintName("FK__Orders__Location__3C34F16F");
+
+                entity.Property(e => e.ProductID).HasColumnName("productid");
 
                 entity.HasOne(d => d.ProductNavigation)
                     .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.Product)
+                    .HasForeignKey(d => d.ProductID)
                     .HasConstraintName("FK__Orders__Product__3E1D39E1");
 
                 
@@ -138,9 +144,7 @@ namespace StoreDL.Entities
 
                 entity.Property(e => e.ProductName).HasColumnName("productName");
 
-                entity.Property(e => e.SliceCount).HasColumnName("sliceCount");
-
-                entity.Property(e => e.WholeCount).HasColumnName("wholeCount");
+                entity.Property(e => e.PieCount).HasColumnName("pieCount");
 
                 entity.HasOne(d => d.LocationNavigation)
                     .WithMany(p => p.Products)

@@ -11,9 +11,9 @@ namespace StoreDL.Entities
         public DateTime OrderDate { get; set; }
         public int Quantity { get; set; }
         public decimal Total { get; set; }
-        public int? Location { get; set; }
-        public int? Customer { get; set; }
-        public int? Product { get; set; }
+        public int CustomerID { get; set; }
+        public int LocationID { get; set; }
+        public int ProductID { get; set; }
 
         public virtual Customer CustomerNavigation { get; set; }
         public virtual Location LocationNavigation { get; set; }

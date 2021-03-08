@@ -2,6 +2,7 @@ using System;
 using StoreBL;
 using StoreModels;
 using System.Collections.Generic;
+using Serilog;
 namespace StoreUI
 {
     public class ManagerMenu : IMenu
@@ -24,7 +25,7 @@ namespace StoreUI
                 Console.WriteLine("Hey Boss hows it going");
                 Console.WriteLine("Please select an option below");
                 Console.WriteLine("=============================");
-                Console.WriteLine("[1] Check Inventory");
+                Console.WriteLine("[1] Check Inventory/Replenish Inventory");
                 Console.WriteLine("[2] Check all Customers");
                 //Console.WriteLine("[3] Update a Customer");
                 //Console.WriteLine("[4] Delete a Customer");
@@ -35,7 +36,7 @@ namespace StoreUI
                 switch (userInput)
                 {
                     case "1":
-                        CheckInventory();
+                        Inventory();
                     break;
                     case "2":
                         GetAllCustomer();
@@ -74,15 +75,80 @@ namespace StoreUI
             }
         }
 
-        private void CheckInventory()
+        private void Inventory()
         {
-            foreach (var item in product)
+            Boolean runMenu = true;
+            do
             {
-                Console.WriteLine(item.ToString());
+            Console.Clear();
+            Console.WriteLine("Please select an option below");
+            Console.WriteLine("=============================");
+            Console.WriteLine("[1] Replenish Inventory");
+            Console.WriteLine("[2] Check Inventory");
+            Console.WriteLine("[3] Go Back");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                ReplenishInventory();
+                break;
+                case "2":
+                foreach (var item in product)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+                Console.WriteLine("Press any key to continue");
+                Console.ReadLine();
+                break;
+                case "3":
+                runMenu = false;
+                break;
+                default:
+
+                break;
             }
-            Console.WriteLine("Press any key to continue");
-            Console.ReadLine();
+            } while (runMenu);
+            
         }
+
+        private Product ReplenishInventory()
+        {
+            Product newInventory;
+            int newLocationID=0;
+            Console.WriteLine("Enter Location you'd like to update:");
+            string userInput = Console.ReadLine();
+            int productUserInput = 0;
+            foreach(StoreLocation l in _repo.GetStoreLocation())
+            {
+                if (l.Name.Equals(userInput))
+                {
+                    newLocationID = l.Id;
+
+                    Console.WriteLine("Enter Product ID you'd like to update:");
+                    userInput = Console.ReadLine();
+
+                    foreach(Product inv in _repo.GetProduct())
+                    {
+                        if(inv.Id.Equals(newLocationID) && inv.ProductName.Equals(_repo.GetProductByName(productUserInput).Id))
+                        {
+                            newInventory = inv;
+                            Console.WriteLine("Enter the updated Stock Quantity:");
+                            userInput = Console.ReadLine();
+                            newInventory.PieCount = int.Parse(userInput);
+                            _repo.UpdateInventory(inv);
+                            return inv;
+                        }
+                    }
+                    Log.Error("Invalid product selection - Manager Menu - Update Inventory");
+                    throw new Exception();
+                }
+            }
+            Log.Error("Invalid location selection - Manager Menu - Update Inventory");
+            throw new Exception();
+
+
+        }
+
         public void DeleteCustomer()
         {
             Console.WriteLine("Enter the email of the Customer that you wish to be removed from the DB: ");

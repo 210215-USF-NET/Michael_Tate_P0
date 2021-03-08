@@ -17,9 +17,9 @@ namespace StoreBL
             _repo.AddCustomer(newCustomer);
         }
 
-        public void AddOrder(Order newOrder, StoreLocation getStoreLocation, Customer getCustomer)
+        public void AddOrder(Order newOrder)
         {
-            _repo.AddOrder(newOrder, getStoreLocation, getCustomer);
+            _repo.AddOrder(newOrder);
         }
 
         public void DeleteCustomer(Customer customer2BDeleted)
@@ -62,6 +62,19 @@ namespace StoreBL
                 _repo.UpdateCustomer(customer2BUpdated);
         }
 
-        
+        public List<Order> GetOrder()
+        {
+            return _repo.GetOrders();
+        }
+
+        public Product GetProductByName(int ProductName)
+        {
+            return _repo.GetProductByName(ProductName);
+        }
+
+        public void UpdateInventory(Product inv)
+        {
+            _repo.UpdateInventory(inv);
+        }
     }
 }

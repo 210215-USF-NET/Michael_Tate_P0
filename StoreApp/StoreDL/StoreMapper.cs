@@ -13,7 +13,7 @@ namespace StoreDL
         {
             return new Model.Customer
             {
-                //CustID = customer.Id,
+                CustID = customer.Id,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
                 Email = customer.Email,
@@ -25,7 +25,7 @@ namespace StoreDL
         {
             return new Entity.Customer
             {
-                //ID = customer.Id,
+                Id = customer.CustID,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
                 Email = customer.Email,
@@ -41,7 +41,8 @@ namespace StoreDL
                 Address = location.Address,
                 City = location.City,
                 State = location.State,
-                Zip = location.Zip
+                Zip = location.Zip,
+                Id = (int)location.Id
             };
         }
 
@@ -62,6 +63,9 @@ namespace StoreDL
         {
             return new Model.Order()
             {
+                CustID= order.CustomerID,
+                LocID = order.LocationID,
+                ProID = order.ProductID,
                 Quantity = order.Quantity,
                 Total = order.Total,
             };
@@ -71,8 +75,11 @@ namespace StoreDL
         {
             return new Entity.Order
             {
+                CustomerID = order.CustID,
+                LocationID = order.LocID,
+                ProductID = order.ProID,
                 Quantity = order.Quantity,
-                Total = order.Total
+                Total = order.Total,
             };
         }
 
@@ -80,10 +87,10 @@ namespace StoreDL
         {
             return new Model.Product()
             {
+                Id = product.Location,
                 ProductName = (Model.Pie)product.ProductName,
                 Price = product.Price,
-                WholeCount = product.WholeCount,
-                SliceCount = product.SliceCount
+                PieCount = product.PieCount,
             };
         }
 
@@ -91,10 +98,10 @@ namespace StoreDL
         {
             return new Entity.Product()
             {
+                Location = (int)product.Id,
                 ProductName = (int)product.ProductName,
                 Price = product.Price,
-                WholeCount = product.WholeCount,
-                SliceCount = product.SliceCount,
+                PieCount = product.PieCount,
             };
         }
     }

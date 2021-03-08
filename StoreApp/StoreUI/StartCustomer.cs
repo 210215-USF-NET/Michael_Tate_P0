@@ -2,12 +2,15 @@ using System;
 using StoreModels;
 using StoreBL;
 using System.Collections.Generic;
+using Serilog;
+
 namespace StoreUI
 {
     public class StartCustomer : IMenu
     {
         IMenu menu;
         private IstoreBL _repo;
+
         public StartCustomer(IstoreBL repo)
         {
             _repo = repo;
@@ -15,6 +18,7 @@ namespace StoreUI
         
         public void Start()
         {
+            Log.Logger = new LoggerConfiguration().WriteTo.File("../SystemLog.json").CreateLogger();
             Boolean runMenu = true;
             do
             {
@@ -38,6 +42,7 @@ namespace StoreUI
                 runMenu = false;
                 break;
                 default:
+                Log.Error("Invalid option was chosen(Client did not choose 'New Customer', 'Existing Customer', or 'Go Back' )");
                 Console.WriteLine("\nThat was not an option try again\n press enter to continue");
                 Console.ReadLine();
                 break;
